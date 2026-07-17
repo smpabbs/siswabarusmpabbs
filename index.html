@@ -12,8 +12,7 @@ body{
   color:#0f172a;min-height:100vh
 }
 body::before,body::after{
-  content:'';position:fixed;border-radius:50%;z-index:-1;
-  pointer-events:none
+  content:'';position:fixed;border-radius:50%;z-index:-1;pointer-events:none
 }
 body::before{
   width:400px;height:400px;background:radial-gradient(circle,rgba(13,115,119,.08),transparent 70%);
@@ -59,8 +58,9 @@ body::after{
 .tab-bar{
   background:#fff;border-radius:12px;padding:5px;display:flex;gap:3px;
   box-shadow:0 2px 8px rgba(0,0,0,.06);margin-bottom:12px;
-  border:1px solid #e2e8f0
+  border:1px solid #e2e8f0;transition:opacity .2s
 }
+.tab-bar.mencari{opacity:.45;pointer-events:none}
 .tab{
   flex:1;text-align:center;padding:10px 0;border-radius:8px;
   font-size:13px;font-weight:600;color:#64748b;cursor:pointer;
@@ -74,8 +74,7 @@ body::after{
 .kelas-card{
   background:#fff;border-radius:14px;
   box-shadow:0 1px 4px rgba(0,0,0,.05);overflow:hidden;
-  border:1px solid #e2e8f0;
-  animation:fadeUp .3s ease
+  border:1px solid #e2e8f0;animation:fadeUp .3s ease
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .kelas-header{
@@ -88,6 +87,7 @@ body::after{
   background:linear-gradient(135deg,var(--warna),var(--warna2));
   padding:3px 14px;border-radius:14px;letter-spacing:.3px
 }
+.kelas-header .kode.semua{background:linear-gradient(135deg,#64748b,#94a3b8)}
 .kelas-header .info{font-size:13px;color:#475569;font-weight:500}
 .kelas-header .count{
   font-size:12px;color:#94a3b8;background:#f1f5f9;
@@ -113,6 +113,10 @@ tr:nth-child(even):hover td{background:#f0fdfa}
   display:inline-flex;width:26px;height:26px;border-radius:50%;
   align-items:center;justify-content:center;
   font-size:11px;font-weight:700;color:#fff;flex-shrink:0
+}
+.badge-kelas{
+  display:inline-block;padding:2px 10px;border-radius:10px;
+  font-size:11px;font-weight:700;color:#fff;margin-left:auto;flex-shrink:0
 }
 .empty{
   text-align:center;padding:32px 18px;color:#94a3b8;font-size:13px
@@ -169,8 +173,7 @@ tr:nth-child(even):hover td{background:#f0fdfa}
 
 <script>
 // ── DATA SOURCE ──
-// jsDelivr CDN — lebih reliable & CORS-friendly dibanding raw.githubusercontent.com
-const DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
+var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
 
 // ── HELPERS ──
 function parseDate(str) {
@@ -223,15 +226,21 @@ async function init() {
 // ── TAB SWITCH ──
 function pilih(k) {
   tabAktif = k;
+  var inp = document.getElementById('searchInput');
+  if (inp) { inp.value = ''; }
+  var btn = document.getElementById('clearBtn');
+  if (btn) btn.classList.remove('show');
   renderTable();
-  // Highlight active tab
-  var tabs = document.querySelectorAll('.tab');
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].classList.toggle('active', tabs[i].dataset.kelas === k);
-  }
-  // Scroll to card
+  highlightTab();
   var card = document.getElementById('card-container');
   if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function highlightTab() {
+  var tabs = document.querySelectorAll('.tab');
+  for (var i = 0; i < tabs.length; i++) {
+    tabs[i].classList.toggle('active', tabs[i].dataset.kelas === tabAktif);
+  }
 }
 
 // ── RENDER ──
@@ -255,7 +264,7 @@ function render() {
   }
 
   // Tabs
-  var html = '<div class="tab-bar">';
+  var html = '<div class="tab-bar" id="tabBar">';
   for (var i = 0; i < KELAS_URUT.length; i++) {
     var k = KELAS_URUT[i];
     html += '<button class="tab' + (tabAktif === k ? ' active' : '') + '" data-kelas="' + k + '" onclick="pilih(\'' + k + '\')">' + k + '</button>';
@@ -265,7 +274,7 @@ function render() {
   // Search bar
   html += '<div class="search-wrap">' +
     '<span class="icon">🔍</span>' +
-    '<input type="text" id="searchInput" placeholder="Cari nama siswa..." oninput="cariSiswa(this)">' +
+    '<input type="text" id="searchInput" placeholder="Cari nama siswa di semua kelas..." oninput="cariSiswa(this)" autocomplete="off">' +
     '<button class="clear" id="clearBtn" onclick="resetCari()">✕ Hapus</button>' +
     '</div>';
 
@@ -283,6 +292,10 @@ function cariSiswa(input) {
   var q = input.value.trim();
   var btn = document.getElementById('clearBtn');
   if (btn) btn.classList.toggle('show', q.length > 0);
+
+  var tabBar = document.getElementById('tabBar');
+  if (tabBar) tabBar.classList.toggle('mencari', q.length > 0);
+
   renderTable(q);
 }
 
@@ -291,6 +304,10 @@ function resetCari() {
   if (inp) { inp.value = ''; }
   var btn = document.getElementById('clearBtn');
   if (btn) btn.classList.remove('show');
+
+  var tabBar = document.getElementById('tabBar');
+  if (tabBar) tabBar.classList.remove('mencari');
+
   renderTable('');
 }
 
@@ -300,19 +317,94 @@ function renderTable(query) {
   if (query === undefined) query = '';
 
   var kls = calculateClasses(data.siswa);
-  var siswa = kls[tabAktif] || [];
   var q = query.toLowerCase().trim();
-  var filtered = q ? siswa.filter(function(s){ return s.nama.toLowerCase().indexOf(q) !== -1; }) : siswa;
+
+  // ── Jika search aktif: cari di SEMUA kelas ──
+  if (q) {
+    // Kumpulkan hasil dari semua kelas
+    var semuaHasil = [];
+    for (var i = 0; i < KELAS_URUT.length; i++) {
+      var k = KELAS_URUT[i];
+      var siswaDiKelas = kls[k] || [];
+      for (var j = 0; j < siswaDiKelas.length; j++) {
+        if (siswaDiKelas[j].nama.toLowerCase().indexOf(q) !== -1) {
+          semuaHasil.push({ siswa: siswaDiKelas[j], kelas: k });
+        }
+      }
+    }
+
+    // Kelompokkan per kelas
+    var byKelas = {};
+    for (var i = 0; i < semuaHasil.length; i++) {
+      var h = semuaHasil[i];
+      if (!byKelas[h.kelas]) byKelas[h.kelas] = [];
+      byKelas[h.kelas].push(h.siswa);
+    }
+
+    // Hitung total
+    var totalHasil = semuaHasil.length;
+    var totalSiswa = 0;
+    for (var i = 0; i < KELAS_URUT.length; i++) {
+      totalSiswa += (kls[KELAS_URUT[i]] || []).length;
+    }
+
+    // Build rows per kelas
+    var allRows = '';
+    var urutKelas = KELAS_URUT.filter(function(k){ return byKelas[k]; });
+    for (var i = 0; i < urutKelas.length; i++) {
+      var k = urutKelas[i];
+      var list = byKelas[k];
+      var w = KELAS_WARNA[k] || ['#0d7377','#0f8a8f'];
+      var warnaBadge = w[0];
+
+      // Header grup kelas
+      allRows += '<tr style="background:#f1f5f9"><td colspan="2" style="padding:8px 18px;font-size:12px;font-weight:700;color:' + warnaBadge + ';letter-spacing:.3px">' +
+        '▸ ' + k + ' — ' + KELAS_INFO[k] + ' <span style="color:#94a3b8;font-weight:400">(' + list.length + ')</span></td></tr>';
+
+      for (var j = 0; j < list.length; j++) {
+        var s = list[j];
+        var namaArr = s.nama.split(' ');
+        var inisial = (namaArr[0] ? namaArr[0][0] : '') + (namaArr[1] ? namaArr[1][0] : '');
+        var warna = j % 3 === 0 ? '#0d7377' : (j % 3 === 1 ? '#7c3aed' : '#b45309');
+        allRows += '<tr><td class="no-col">' + (j + 1) + '</td><td class="nama">' +
+          '<span class="avatar" style="background:' + warna + '">' + inisial + '</span>' + s.nama +
+          '</td></tr>';
+      }
+    }
+
+    var card = document.getElementById('card-container');
+    if (!card) return;
+
+    card.innerHTML =
+      '<div class="kelas-card">' +
+        '<div class="kelas-header">' +
+          '<div class="kiri">' +
+            '<span class="kode semua" style="background:linear-gradient(135deg,#64748b,#94a3b8)">🔍</span>' +
+            '<span class="info">Hasil pencarian</span>' +
+          '</div>' +
+          '<span class="count">' + totalHasil + '/' + totalSiswa + ' siswa</span>' +
+        '</div>' +
+        '<div class="card-body"><table>' +
+          '<thead><tr><th style="width:24px">No</th><th>Nama Siswa</th></tr></thead><tbody>' +
+          (allRows || '<tr><td colspan="2"><div class="empty">Tidak ada siswa dengan nama "' + query + '"</div></td></tr>') +
+          '</tbody></table></div>' +
+      '</div>';
+
+    return;
+  }
+
+  // ── Normal: tampilkan tab aktif ──
+  var siswa = kls[tabAktif] || [];
 
   var w = KELAS_WARNA[tabAktif] || ['#0d7377','#0f8a8f'];
   var info = KELAS_INFO[tabAktif] || '';
 
   var rows = '';
-  if (filtered.length === 0) {
-    rows = '<tr><td colspan="2"><div class="empty">' + (q ? 'Tidak ada siswa dengan nama "' + query + '"' : 'Belum ada siswa') + '</div></td></tr>';
+  if (siswa.length === 0) {
+    rows = '<tr><td colspan="2"><div class="empty">Belum ada siswa</div></td></tr>';
   } else {
-    for (var i = 0; i < filtered.length; i++) {
-      var s = filtered[i];
+    for (var i = 0; i < siswa.length; i++) {
+      var s = siswa[i];
       var namaArr = s.nama.split(' ');
       var inisial = (namaArr[0] ? namaArr[0][0] : '') + (namaArr[1] ? namaArr[1][0] : '');
       var warna = i % 3 === 0 ? '#0d7377' : (i % 3 === 1 ? '#7c3aed' : '#b45309');
@@ -330,7 +422,7 @@ function renderTable(query) {
           '<span class="kode" style="--warna:' + w[0] + ';--warna2:' + w[1] + '">' + tabAktif + '</span>' +
           '<span class="info">' + info + '</span>' +
         '</div>' +
-        '<span class="count">' + (q ? filtered.length + '/' + siswa.length : siswa.length) + ' siswa</span>' +
+        '<span class="count">' + siswa.length + ' siswa</span>' +
       '</div>' +
       '<div class="card-body"><table>' +
         '<thead><tr><th style="width:24px">No</th><th>Nama Siswa</th></tr></thead><tbody>' +
