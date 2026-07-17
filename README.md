@@ -1,24 +1,19 @@
-# Data Siswa Baru SMP ABBS 2026/2027
+# Pembagian Kelas Siswa Baru SMP ABBS 2026/2027
 
-**Viewer publik** data PPS 2026/2027 — menampilkan daftar siswa baru per program.
+**Viewer publik** — menampilkan pembagian kelas siswa baru (7A–7E).
 
 🌐 **URL:** https://siswabarusmpabbs.vercel.app
 
 ## Cara Kerja
 
-- Halaman ini **fetch data.json** langsung dari repo utama [`smpabbs/pps-pembagian-kelas`](https://github.com/smpabbs/pps-pembagian-kelas) via **raw.githubusercontent.com**
-- Setiap refresh menampilkan **data terbaru** — tidak perlu deploy ulang
-- **Read-only** — view publik, edit dilakukan di [pps2627.vercel.app](https://pps2627.vercel.app)
+- Halaman ini **fetch data.json** langsung dari repo utama [`smpabbs/pps-pembagian-kelas`](https://github.com/smpabbs/pps-pembagian-kelas)
+- Setiap refresh menampilkan **pembagian kelas terbaru** — otomatis
+- **Untuk siswa** — cukup lihat nama dan kelasnya saja
+- Edit data dilakukan di [pps2627.vercel.app](https://pps2627.vercel.app) (khusus admin)
 
 ## Fitur
 
-- ✅ Tabel per program (ICT-L/P, TCP-L/P, VCP-L/P)
-- ✅ Search by nama / asal sekolah
-- ✅ Filter per program
-- ✅ Auto sync dengan data terbaru dari repo utama
-
-## Teknologi
-
-- HTML + CSS + JavaScript (vanilla)
-- GitHub Raw API untuk data
-- Vercel untuk hosting
+- ✅ Tampilkan 5 kelas (7A–7E) hasil pembagian
+- ✅ Accordion per kelas — klik header untuk buka/tutup
+- ✅ Auto-sync dengan data terbaru
+- ✅ Tampilan bersih, mobile-friendly

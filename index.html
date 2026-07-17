@@ -3,246 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Siswa Baru 2026/2027 — SMP ABBS Surakarta</title>
+<title>Pembagian Kelas Siswa Baru SMP ABBS Surakarta TA 2026/2027</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0e17;color:#e2e8f0;min-height:100vh}
-.header{background:#0d7377;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.header h1{font-size:18px;font-weight:700;color:#fff}
-.header-sub{font-size:12px;color:#b8f0f0}
-.stats-bar{background:#111827;padding:12px 24px;display:flex;gap:20px;flex-wrap:wrap;border-bottom:1px solid #1f2937;font-size:13px}
-.stat-item{color:#9ca3af}
-.stat-item strong{color:#e2e8f0}
-.content{padding:20px 24px;max-width:1200px;margin:0 auto}
-.card{background:#1a1f2e;border-radius:10px;border:1px solid #2a3040;overflow:hidden}
-.card-header{background:#111827;padding:14px 18px;font-weight:600;font-size:15px;color:#f1f5f9;border-bottom:1px solid #2a3040;display:flex;justify-content:space-between;align-items:center}
-.card-body{padding:0;overflow-x:auto}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{background:#111827;color:#9ca3af;font-weight:600;padding:10px 14px;text-align:left;border-bottom:2px solid #2a3040;position:sticky;top:0;white-space:nowrap}
-td{padding:8px 14px;border-bottom:1px solid #1f2937;vertical-align:middle;white-space:nowrap}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f9fa;color:#1e293b;min-height:100vh}
+.header{background:#0d7377;padding:20px 24px;text-align:center}
+.header h1{font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
+.header .sub{font-size:13px;color:#b8f0f0}
+.stats-bar{background:#fff;padding:12px 24px;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;border-bottom:1px solid #e2e8f0;font-size:13px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.stat-item{color:#64748b}
+.stat-item strong{color:#0d7377}
+.content{max-width:900px;margin:0 auto;padding:20px 16px}
+.kelas-card{background:#fff;border-radius:10px;margin-bottom:16px;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
+.kelas-header{display:flex;justify-content:space-between;align-items:center;padding:14px 18px;cursor:pointer;user-select:none;transition:background .2s}
+.kelas-header:hover{background:#f1f5f9}
+.kelas-header .kiri{display:flex;align-items:center;gap:12px}
+.kelas-header .kode{font-weight:700;font-size:16px;color:#fff;padding:4px 14px;border-radius:20px}
+.kelas-header .info{font-size:13px;color:#64748b}
+.kelas-header .arrow{font-size:12px;color:#94a3b8;transition:transform .3s}
+.kelas-card.open .kelas-header .arrow{transform:rotate(180deg)}
+.kelas-body{display:none;padding:0;border-top:1px solid #e2e8f0}
+.kelas-card.open .kelas-body{display:block}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th{background:#f8fafc;color:#64748b;font-weight:600;padding:10px 18px;text-align:left;border-bottom:1px solid #e2e8f0;font-size:12px;text-transform:uppercase;letter-spacing:.5px}
+td{padding:10px 18px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
 tr:last-child td{border-bottom:none}
-tr:hover td{background:#242a3a}
-tr:nth-child(even) td{background:#181e2c}
-tr:nth-child(even):hover td{background:#242a3a}
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600}
-.badge-ICT-L{background:#0d737722;color:#4dd8db;border:1px solid #0d7377}
-.badge-ICT-P{background:#8b451322;color:#e8a85d;border:1px solid #8b4513}
-.badge-TCP-L{background:#2a5a2a22;color:#6fcf6f;border:1px solid #2a5a2a}
-.badge-TCP-P{background:#1a6b8a22;color:#5dc8e8;border:1px solid #1a6b8a}
-.badge-VCP-L{background:#6b3a7b22;color:#c084d8;border:1px solid #6b3a7b}
-.badge-VCP-P{background:#d4a35d22;color:#d4a35d;border:1px solid #d4a35d}
-.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;align-items:center}
-.filter-bar input,.filter-bar select{background:#111827;border:1px solid #2a3040;color:#e2e8f0;padding:8px 12px;border-radius:6px;font-size:13px;outline:none}
-.filter-bar input:focus,.filter-bar select:focus{border-color:#0d7377}
-.filter-bar input{flex:1;min-width:200px}
-.count-badge{background:#0d7377;color:#fff;border-radius:10px;padding:2px 10px;font-size:12px;font-weight:600}
-.last-update{text-align:center;padding:20px;color:#6b7280;font-size:12px}
-.last-update a{color:#0d7377;text-decoration:none}
-.last-update a:hover{text-decoration:underline}
-.loading{text-align:center;padding:60px 20px;color:#9ca3af}
-.loading .spinner{display:inline-block;width:32px;height:32px;border:3px solid #1f2937;border-top-color:#0d7377;border-radius:50%;animation:spin .8s linear infinite;margin-bottom:12px}
+tr:nth-child(even) td{background:#f8fafc}
+.number-col{color:#94a3b8;width:40px;text-align:center;font-size:13px}
+.loading,.error{text-align:center;padding:60px 20px}
+.loading .spinner{display:inline-block;width:36px;height:36px;border:3px solid #e2e8f0;border-top-color:#0d7377;border-radius:50%;animation:spin .8s linear infinite;margin-bottom:12px}
 @keyframes spin{to{transform:rotate(360deg)}}
-.error{text-align:center;padding:40px 20px;color:#ef4444}
-.error .btn-retry{background:#0d7377;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;margin-top:12px;font-size:13px}
-.error .btn-retry:hover{background:#0f8a8f}
-.program-section{margin-bottom:20px}
-@media(max-width:768px){
-  .header{flex-direction:column;align-items:flex-start}
-  .stats-bar{gap:10px;flex-direction:column}
-  td,th{padding:6px 10px;font-size:12px}
-  .content{padding:12px}
+.loading-text{color:#64748b;font-size:14px}
+.error-icon{font-size:40px;margin-bottom:8px}
+.error-text{color:#ef4444;font-weight:600;margin-bottom:4px}
+.error-detail{color:#94a3b8;font-size:13px;margin-bottom:16px}
+.btn-retry{background:#0d7377;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px}
+.btn-retry:hover{background:#0f8a8f}
+.footer{text-align:center;padding:20px;color:#94a3b8;font-size:12px;line-height:1.6}
+.footer a{color:#0d7377;text-decoration:none}
+.footer a:hover{text-decoration:underline}
+@media(max-width:600px){
+  .header h1{font-size:16px}
+  .kelas-header{padding:12px 14px}
+  .kelas-header .kode{font-size:14px;padding:3px 12px}
+  td,th{padding:8px 14px;font-size:13px}
+  .content{padding:12px 8px}
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div>
-    <h1 id="page-title">Data Siswa Baru 2026/2027</h1>
-    <div class="header-sub" id="page-sub">SMP ABBS Surakarta</div>
-  </div>
-  <div style="font-size:12px;color:#b8f0f0" id="update-info">Memuat data...</div>
+  <h1>PEMBAGIAN KELAS SISWA BARU</h1>
+  <div class="sub">SMP ABBS SURAKARTA — TAHUN AJARAN 2026/2027</div>
 </div>
 
-<div class="stats-bar" id="stats-bar"></div>
-
-<div class="content">
-  <div class="filter-bar">
-    <input type="text" id="search-input" placeholder="🔍 Cari nama atau asal sekolah..." oninput="renderView()">
-    <select id="program-filter" onchange="renderView()">
-      <option value="">Semua Program</option>
-      <option value="ICT-L">ICT Laki-laki</option>
-      <option value="ICT-P">ICT Perempuan</option>
-      <option value="TCP-L">TCP Laki-laki</option>
-      <option value="TCP-P">TCP Perempuan</option>
-      <option value="VCP-L">VCP Laki-laki</option>
-      <option value="VCP-P">VCP Perempuan</option>
-    </select>
-    <span class="count-badge" id="result-count">0</span>
-  </div>
-
-  <div id="view-container">
-    <div class="loading">
-      <div class="spinner"></div>
-      <div>Memuat data dari server...</div>
-    </div>
-  </div>
-
-  <div class="last-update" id="footer-info"></div>
+<div class="stats-bar" id="stats-bar">
+  <span class="stat-item">Memuat data...</span>
 </div>
+
+<div class="content" id="content">
+  <div class="loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Memuat data pembagian kelas...</div>
+  </div>
+</div>
+
+<div class="footer" id="footer"></div>
 
 <script>
 const RAW_URL = 'https://raw.githubusercontent.com/smpabbs/pps-pembagian-kelas/main/data.json';
-
-const PROGRAM_LABELS = {
-  'ICT-L': 'ICT Laki-laki',
-  'ICT-P': 'ICT Perempuan',
-  'TCP-L': 'TCP Laki-laki',
-  'TCP-P': 'TCP Perempuan',
-  'VCP-L': 'VCP Laki-laki',
-  'VCP-P': 'VCP Perempuan'
-};
-
-const PROGRAM_ORDER = ['ICT-L','ICT-P','TCP-L','TCP-P','VCP-L','VCP-P'];
 
 let data = null;
 let isLoading = true;
 let loadError = null;
 
+function parseDate(str) {
+  if (!str) return 99999999;
+  const parts = str.split('/');
+  if (parts.length === 3) return parseInt(parts[2])*10000 + parseInt(parts[1])*100 + parseInt(parts[0]);
+  return 99999999;
+}
+function dateSort(a,b) { return parseDate(a.tgl_daftar) - parseDate(b.tgl_daftar); }
+
+function calculateClasses(siswa) {
+  const putra = siswa.filter(s => s.program.endsWith('-L')).sort(dateSort);
+  const putri = siswa.filter(s => s.program.endsWith('-P')).sort(dateSort);
+  const ict_l = putra.filter(s => s.program === 'ICT-L');
+  const tcp_l = putra.filter(s => s.program === 'TCP-L');
+  const vcp_l = putra.filter(s => s.program === 'VCP-L');
+  const ict_p = putri.filter(s => s.program === 'ICT-P');
+  const tcp_p = putri.filter(s => s.program === 'TCP-P');
+  const vcp_p = putri.filter(s => s.program === 'VCP-P');
+  return {
+    '7A': [...ict_l.slice(0,26), ...vcp_l.slice(0,3)],
+    '7B': [...ict_l.slice(26,52), ...vcp_l.slice(3,6)],
+    '7C': [...ict_l.slice(52), ...tcp_l, ...vcp_l.slice(6)],
+    '7D': [...ict_p],
+    '7E': [...tcp_p, ...vcp_p]
+  };
+}
+
+const KELAS_INFO = {
+  '7A': { label: 'Putra 1', color: '#0d7377' },
+  '7B': { label: 'Putra 2', color: '#1a6b8a' },
+  '7C': { label: 'Putra 3', color: '#2a5a2a' },
+  '7D': { label: 'Putri 1', color: '#b45309' },
+  '7E': { label: 'Putri 2', color: '#7c3aed' }
+};
+const KELAS_ORDER = ['7A','7B','7C','7D','7E'];
+
 async function fetchData() {
   isLoading = true;
   loadError = null;
-  renderView();
+  render();
   try {
     const r = await fetch(RAW_URL);
-    if (!r.ok) throw new Error('HTTP ' + r.status);
+    if (!r.ok) throw new Error('Gagal memuat data (HTTP ' + r.status + ')');
     data = await r.json();
     isLoading = false;
-    renderView();
+    render();
   } catch(e) {
     isLoading = false;
     loadError = e.message;
-    renderView();
+    render();
   }
 }
 
-function escapeHtml(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
-
-function renderView() {
-  const container = document.getElementById('view-container');
+function render() {
+  const container = document.getElementById('content');
   const statsBar = document.getElementById('stats-bar');
-  const updateInfo = document.getElementById('update-info');
-  const footer = document.getElementById('footer-info');
-  const resultCount = document.getElementById('result-count');
+  const footer = document.getElementById('footer');
 
   if (isLoading) {
-    container.innerHTML = '<div class="loading"><div class="spinner"></div><div>Memuat data dari server...</div></div>';
-    statsBar.innerHTML = '';
-    updateInfo.textContent = 'Memuat...';
+    container.innerHTML = '<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat data pembagian kelas...</div></div>';
+    statsBar.innerHTML = '<span class="stat-item">Memuat...</span>';
     footer.innerHTML = '';
-    resultCount.textContent = '0';
     return;
   }
 
   if (loadError) {
-    container.innerHTML = '<div class="error"><div style="font-size:40px;margin-bottom:12px">⚠️</div><div style="font-weight:600;margin-bottom:4px">Gagal memuat data</div><div style="font-size:13px;color:#9ca3af">' + escapeHtml(loadError) + '</div><button class="btn-retry" onclick="fetchData()">🔄 Coba lagi</button></div>';
-    statsBar.innerHTML = '';
-    updateInfo.textContent = 'Gagal';
+    container.innerHTML = '<div class="error"><div class="error-icon">⚠️</div><div class="error-text">Gagal memuat data</div><div class="error-detail">' + loadError + '</div><button class="btn-retry" onclick="fetchData()">🔄 Coba Lagi</button></div>';
+    statsBar.innerHTML = '<span class="stat-item">⚠️ Gagal memuat</span>';
     footer.innerHTML = '';
-    resultCount.textContent = '0';
     return;
   }
 
-  if (!data || !data.siswa) {
-    container.innerHTML = '<div class="error">Data tidak tersedia</div>';
+  if (!data || !data.siswa || !data.siswa.length) {
+    container.innerHTML = '<div class="error"><div class="error-text">Data siswa tidak tersedia</div></div>';
     return;
   }
 
-  // Update header
-  document.getElementById('page-title').textContent = data.title || 'Data Siswa Baru 2026/2027';
-  document.getElementById('page-sub').textContent = data.sekolah || 'SMP ABBS Surakarta';
-  updateInfo.textContent = 'Data per ' + (data.per_tanggal || '-');
+  const kelas = calculateClasses(data.siswa);
+  const total = data.total || data.siswa.length;
 
   // Stats bar
-  statsBar.innerHTML = '<span class="stat-item">Total: <strong>' + data.total + '</strong> siswa</span>' +
-    '<span class="stat-item">Laki-laki: <strong>' + data.l_count + '</strong></span>' +
-    '<span class="stat-item">Perempuan: <strong>' + data.p_count + '</strong></span>';
+  statsBar.innerHTML =
+    '<span class="stat-item">Total: <strong>' + total + '</strong> siswa</span>' +
+    '<span class="stat-item">L: <strong>' + (data.l_count || '-') + '</strong></span>' +
+    '<span class="stat-item">P: <strong>' + (data.p_count || '-') + '</strong></span>' +
+    '<span class="stat-item">Kelas: <strong>7A – 7E</strong></span>';
 
-  // Filter
-  const search = document.getElementById('search-input').value.toLowerCase().trim();
-  const progFilter = document.getElementById('program-filter').value;
-
-  let filtered = data.siswa.filter(s => {
-    if (progFilter && s.program !== progFilter) return false;
-    if (search) {
-      const n = s.nama.toLowerCase();
-      const a = s.asal_sekolah.toLowerCase();
-      const c = (s.catatan || '').toLowerCase();
-      if (!n.includes(search) && !a.includes(search) && !c.includes(search)) return false;
-    }
-    return true;
-  });
-
-  // Group by program
-  const groups = {};
-  for (const s of filtered) {
-    const p = s.program || 'Lainnya';
-    if (!groups[p]) groups[p] = [];
-    groups[p].push(s);
-  }
-
-  resultCount.textContent = filtered.length;
-
-  // Build HTML
   let html = '';
-  let progKeys = Object.keys(groups).sort((a,b) => PROGRAM_ORDER.indexOf(a) - PROGRAM_ORDER.indexOf(b));
+  let allOpen = true;
 
-  if (progKeys.length === 0) {
-    html = '<div class="card" style="padding:40px;text-align:center;color:#9ca3af">Tidak ada siswa yang cocok dengan pencarian</div>';
-  } else {
-    for (const prog of progKeys) {
-      const list = groups[prog];
-      const label = PROGRAM_LABELS[prog] || prog;
-      // Generate tabel
-      let rows = '';
-      for (const s of list) {
-        const catatan = s.catatan ? '<span style="color:#e8a85d;font-size:11px">' + escapeHtml(s.catatan) + '</span>' : '';
-        rows += '<tr>' +
-          '<td>' + s.id + '</td>' +
-          '<td><strong>' + escapeHtml(s.nama) + '</strong></td>' +
-          '<td><span class="badge badge-' + escapeHtml(prog) + '">' + escapeHtml(prog) + '</span></td>' +
-          '<td>' + escapeHtml(s.asal_sekolah) + '</td>' +
-          '<td>' + escapeHtml(s.tgl_daftar) + '</td>' +
-          '<td>' + catatan + '</td>' +
-        '</tr>';
-      }
-      html += '<div class="program-section">' +
-        '<div class="card">' +
-        '<div class="card-header">' +
-        '<span>' + escapeHtml(label) + '</span>' +
-        '<span class="count-badge">' + list.length + ' siswa</span>' +
+  for (const k of KELAS_ORDER) {
+    const students = kelas[k] || [];
+    const info = KELAS_INFO[k];
+    const totalKelas = KELAS_ORDER.reduce((sum, kk) => sum + (kelas[kk]?.length || 0), 0);
+
+    let rows = '';
+    students.forEach((s, i) => {
+      rows += '<tr><td class="number-col">' + (i + 1) + '</td><td><strong>' + s.nama + '</strong></td></tr>';
+    });
+
+    html += '<div class="kelas-card' + (allOpen ? ' open' : '') + '" id="kelas-' + k + '">' +
+      '<div class="kelas-header" onclick="toggleKelas(\'' + k + '\')">' +
+        '<div class="kiri">' +
+          '<span class="kode" style="background:' + info.color + '">' + k + '</span>' +
+          '<span class="info">' + info.label + ' — ' + students.length + ' siswa</span>' +
         '</div>' +
-        '<div class="card-body">' +
-        '<table>' +
-        '<thead><tr>' +
-        '<th>No</th><th>Nama</th><th>Program</th><th>Asal Sekolah</th><th>Tgl Daftar</th><th>Catatan</th>' +
-        '</tr></thead>' +
-        '<tbody>' + rows + '</tbody>' +
-        '</table>' +
-        '</div></div></div>';
-    }
+        '<span class="arrow">▼</span>' +
+      '</div>' +
+      '<div class="kelas-body">' +
+        '<table><thead><tr><th style="width:40px">No</th><th>Nama Siswa</th></tr></thead><tbody>' +
+        rows +
+        '</tbody></table>' +
+      '</div>' +
+    '</div>';
   }
 
   container.innerHTML = html;
 
   // Footer
-  footer.innerHTML = 'Data bersumber dari ' +
-    '<a href="https://github.com/smpabbs/pps-pembagian-kelas" target="_blank">github.com/smpabbs/pps-pembagian-kelas</a> • ' +
-    '<a href="https://pps2627.vercel.app" target="_blank">Halaman Admin PPS</a>' +
-    '<br>Total <strong>' + data.total + '</strong> siswa — <span id="footer-date">' + (data.per_tanggal || '-') + '</span>';
+  footer.innerHTML =
+    'Data diperbaharui: ' + (data.per_tanggal || '-') +
+    '<br><a href="https://pps2627.vercel.app" target="_blank">✏️ Admin PPS</a>';
 }
 
-// Initial load
+function toggleKelas(k) {
+  document.getElementById('kelas-' + k).classList.toggle('open');
+}
+
 fetchData();
 </script>
 </body>
