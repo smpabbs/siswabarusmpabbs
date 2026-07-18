@@ -3,29 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pembagian Kelas Siswa Baru SMP ABBS 2026/2027</title>
+<title>Pembagian Kelas — Awalussanah SMP ABBS 2026/2027</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0c1222;--bg2:#111827;--bg3:#1a2235;--bg4:#1e293b;--border:#2a3346;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--gold:#d4a853;--gold2:#c4953a;--teal:#2dd4bf;--gold-glow:rgba(212,168,83,.12);--shadow:0 4px 24px rgba(0,0,0,.3)}
 
-/* ── VARIABLES ── */
-:root{
-  --bg:#0c1222;
-  --bg2:#111827;
-  --bg3:#1a2235;
-  --bg4:#1e293b;
-  --border:#2a3346;
-  --text:#e2e8f0;
-  --text2:#94a3b8;
-  --text3:#64748b;
-  --accent:#d4a853;
-  --accent2:#c4953a;
-  --accent-glow:rgba(212,168,83,.12);
-  --shadow:0 4px 24px rgba(0,0,0,.3);
-}
 /* ── WELCOME ── */
 .welcome-overlay{
   position:fixed;inset:0;z-index:9999;
-  background:radial-gradient(ellipse at center, #0f1a2e 0%, #080e1a 100%);
+  background:radial-gradient(ellipse at center,#0f1a2e 0%,#080e1a 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:24px;text-align:center;
   transition:opacity .6s ease,visibility .6s ease
@@ -41,7 +27,7 @@
 }
 .welcome-overlay .logo-w{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:18px;position:relative;z-index:1;border:2px solid rgba(212,168,83,.25);box-shadow:0 0 30px rgba(212,168,83,.1)}
 .welcome-overlay .ayat{
-  font-size:20px;font-weight:600;color:var(--accent);line-height:1.6;
+  font-size:20px;font-weight:600;color:var(--gold);line-height:1.6;
   max-width:460px;position:relative;z-index:1;
   font-family:'Times New Roman',serif;
   text-shadow:0 0 40px rgba(212,168,83,.08)
@@ -55,7 +41,7 @@
 }
 .welcome-overlay .btn-masuk{
   margin-top:28px;padding:12px 40px;border-radius:10px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
   color:#0c1222;font-weight:700;font-size:14px;border:none;
   cursor:pointer;transition:all .3s;position:relative;z-index:1;
   font-family:inherit;letter-spacing:.5px;box-shadow:0 4px 20px rgba(212,168,83,.2)
@@ -72,17 +58,17 @@ body{
 }
 .header{
   background:linear-gradient(135deg,#0f1a2e 0%,#162240 50%,#1a2a42 100%);
-  padding:28px 20px 36px;text-align:center;position:relative;overflow:hidden;
+  padding:24px 20px 32px;text-align:center;position:relative;overflow:hidden;
   border-bottom:1px solid var(--border)
 }
 .header::after{
   content:'';position:absolute;inset:0;
   background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 20H50L38 30L43 45L30 35L17 45L22 30L10 20H25Z' fill='rgba(212,168,83,.04)'/%3E%3C/svg%3E") repeat;opacity:.3
 }
-.header .logo{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,168,83,.2);margin-bottom:10px;position:relative}
-.header h1{font-size:18px;font-weight:800;color:var(--text);letter-spacing:.5px;line-height:1.4;position:relative}
-.header .sub{font-size:12px;color:var(--text2);margin-top:4px;position:relative}
-.content{max-width:720px;margin:-20px auto 0;padding:0 12px 20px;position:relative}
+.header .logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,168,83,.2);margin-bottom:8px;position:relative}
+.header h1{font-size:17px;font-weight:800;color:var(--text);letter-spacing:.5px;line-height:1.4;position:relative}
+.header .sub{font-size:11px;color:var(--text2);margin-top:3px;position:relative}
+.content{max-width:860px;margin:-18px auto 0;padding:0 12px 20px;position:relative}
 
 /* ── SEARCH ── */
 .search-wrap{
@@ -91,7 +77,7 @@ body{
   box-shadow:var(--shadow);margin-bottom:12px;
   border:1px solid var(--border);transition:border-color .2s,box-shadow .2s
 }
-.search-wrap:focus-within{border-color:var(--accent);box-shadow:0 2px 16px var(--accent-glow)}
+.search-wrap:focus-within{border-color:var(--gold);box-shadow:0 2px 16px var(--gold-glow)}
 .search-wrap .icon{color:var(--text3);font-size:15px;flex-shrink:0}
 .search-wrap input{
   flex:1;border:none;background:transparent;padding:10px 0;
@@ -120,34 +106,63 @@ body{
 }
 .tab:hover{color:var(--text);background:var(--bg4)}
 .tab.active{
-  background:linear-gradient(135deg,#1a2a42,#243b5a);color:var(--accent);
+  background:linear-gradient(135deg,#1a2a42,#243b5a);color:var(--gold);
   box-shadow:0 2px 8px rgba(0,0,0,.2)
 }
 
-/* ── CARD ── */
+/* ── CLASS CARD ── */
 .kelas-card{
   background:var(--bg3);border-radius:14px;
   box-shadow:var(--shadow);overflow:hidden;
-  border:1px solid var(--border);animation:fadeUp .3s ease
+  border:1px solid var(--border);animation:fadeUp .3s ease;
+  margin-bottom:16px
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.kelas-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:16px 18px;background:linear-gradient(135deg,var(--bg2),var(--bg3));
-  border-bottom:1px solid var(--border)
+
+/* Class header with walas */
+.kelas-hero{
+  padding:18px 20px;
+  background:linear-gradient(135deg,var(--bg2),var(--bg3));
+  border-bottom:1px solid var(--border);
+  display:flex;justify-content:space-between;align-items:center;gap:16px
 }
-.kelas-header .kiri{display:flex;align-items:center;gap:10px}
-.kelas-header .kode{
-  font-weight:700;font-size:13px;color:var(--accent);
-  background:var(--bg4);padding:3px 14px;border-radius:14px;
-  letter-spacing:.3px;border:1px solid rgba(212,168,83,.15)
+.kelas-hero-left{flex:1;min-width:0}
+.kelas-hero-left .kode{
+  font-size:20px;font-weight:800;color:var(--gold);margin-bottom:2px
 }
-.kelas-header .kode.semua{background:var(--bg4);border-color:var(--text3);color:var(--text2)}
-.kelas-header .info{font-size:13px;color:var(--text2);font-weight:500}
-.kelas-header .count{
-  font-size:12px;color:var(--text3);background:var(--bg4);
-  padding:3px 12px;border-radius:12px
+.kelas-hero-left .walas-nama{
+  font-size:13px;color:var(--text2);line-height:1.4
 }
+.kelas-hero-left .walas-nama strong{color:var(--teal)}
+.kelas-hero-left .counts{
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:10px
+}
+.count-badge{
+  padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600
+}
+.count-badge.laki{background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.2)}
+.count-badge.perempuan{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
+.count-badge.total{background:rgba(255,255,255,.05);color:var(--text2);border:1px solid var(--border)}
+
+.kelas-hero-right{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px}
+.kelas-hero-right .foto-walas{
+  width:52px;height:52px;border-radius:50%;object-fit:cover;
+  border:2px solid rgba(212,168,83,.25)
+}
+.kelas-hero-right .panggilan{
+  font-size:10px;font-weight:700;color:var(--gold);text-align:center;letter-spacing:.3px
+}
+.kelas-hero-right .qr-wrap{
+  display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:2px
+}
+.kelas-hero-right .qr-wrap img{
+  width:48px;height:48px;border-radius:6px;border:1px solid var(--border);background:#fff
+}
+.kelas-hero-right .qr-wrap .qr-label{
+  font-size:9px;color:var(--text3);letter-spacing:.2px
+}
+
+/* ── TABLE ── */
 .card-body{padding:0 0 2px}
 table{width:100%;border-collapse:collapse;font-size:14px}
 th{
@@ -156,26 +171,35 @@ th{
   border-bottom:1px solid var(--border);
   letter-spacing:.5px;text-transform:uppercase
 }
-td{padding:11px 18px;border-bottom:1px solid rgba(42,51,70,.5);vertical-align:middle}
+td{padding:10px 18px;border-bottom:1px solid rgba(42,51,70,.5);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(212,168,83,.04)}
 tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
-.no-col{color:var(--text3);width:24px;text-align:center;font-size:12px;font-weight:500}
-.nama{font-weight:500;color:var(--text);display:flex;align-items:center;gap:8px}
+.no-col{color:var(--text3);width:32px;text-align:center;font-size:12px;font-weight:500}
+.nama{font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
 .nama .avatar{
-  display:inline-flex;width:26px;height:26px;border-radius:50%;
+  display:inline-flex;width:24px;height:24px;border-radius:50%;
   align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;color:#fff;flex-shrink:0;
+  font-size:10px;font-weight:700;color:#fff;flex-shrink:0;
   box-shadow:0 2px 6px rgba(0,0,0,.2)
 }
-.badge-kelas{
-  display:inline-block;padding:2px 10px;border-radius:10px;
-  font-size:11px;font-weight:700;color:#fff;margin-left:auto;flex-shrink:0
+.jk-cell{text-align:center;font-size:13px;width:50px}
+.jk-cell .l{color:var(--teal);font-weight:700}
+.jk-cell .p{color:var(--gold);font-weight:700}
+.asal{color:var(--text2);font-size:13px}
+.wa-cell{font-size:12px;white-space:nowrap}
+.wa-link{
+  color:var(--teal);text-decoration:none;font-weight:600;
+  padding:2px 8px;border-radius:6px;
+  background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.15);
+  transition:all .2s;display:inline-block;font-size:11px
 }
+.wa-link:hover{background:rgba(45,212,191,.15);border-color:rgba(45,212,191,.3)}
+.wa-sep{color:var(--text3);font-size:10px;margin:0 2px}
 .grup-header td{
   padding:8px 18px;font-size:12px;font-weight:700;letter-spacing:.3px;
-  background:var(--bg2);color:var(--accent)
+  background:var(--bg2);color:var(--gold)
 }
 .empty{
   text-align:center;padding:32px 18px;color:var(--text3);font-size:13px
@@ -183,7 +207,7 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
 .loading{text-align:center;padding:80px 20px}
 .spinner{
   display:inline-block;width:30px;height:30px;
-  border:3px solid var(--border);border-top-color:var(--accent);
+  border:3px solid var(--border);border-top-color:var(--gold);
   border-radius:50%;animation:spin .7s linear infinite
 }
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -193,21 +217,22 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
 .error-text{color:#ef4444;font-weight:600;font-size:14px}
 .error-detail{color:var(--text3);font-size:13px;margin:6px 0 14px}
 .btn-retry{
-  background:var(--accent);color:#0c1222;border:none;
+  background:var(--gold);color:#0c1222;border:none;
   padding:8px 22px;border-radius:8px;cursor:pointer;
   font-size:13px;font-family:inherit;font-weight:600;transition:background .2s
 }
-.btn-retry:hover{background:var(--accent2)}
+.btn-retry:hover{background:var(--gold2)}
 .footer{text-align:center;padding:18px;color:var(--text3);font-size:11px}
-.footer a{color:var(--accent);text-decoration:none}
+.footer a{color:var(--gold);text-decoration:none}
 .footer a:hover{text-decoration:underline}
-@media(max-width:480px){
-  .header{padding:24px 16px 32px}
+@media(max-width:600px){
+  .header{padding:20px 16px 28px}
   .header h1{font-size:15px}
   .tab{font-size:12px;padding:8px 0}
-  td,th{padding:8px 14px;font-size:13px}
-  .kelas-header{padding:12px 14px}
-  .kelas-header .info{font-size:12px}
+  td,th{padding:8px 12px;font-size:13px}
+  .kelas-hero{padding:14px 16px;flex-direction:column;align-items:flex-start}
+  .kelas-hero-right{flex-direction:row;gap:12px;align-self:flex-start;width:100%}
+  .kelas-hero-right .qr-wrap img{width:40px;height:40px}
   .search-wrap{padding:2px 2px 2px 12px}
   .search-wrap input{font-size:13px;padding:8px 0}
   .welcome-overlay .ayat{font-size:17px}
@@ -226,26 +251,18 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
   <div class="star" style="width:1.5px;height:1.5px;bottom:20%;left:25%;--d:3.8s;--delay:.8s"></div>
   <div class="star" style="width:2px;height:2px;top:40%;right:8%;--d:3s;--delay:1.5s"></div>
   <div class="star" style="width:1px;height:1px;top:70%;right:35%;--d:2.2s;--delay:.3s"></div>
-  <div class="star" style="width:2.5px;height:2.5px;bottom:15%;right:60%;--d:4.2s;--delay:1.8s"></div>
-  <div class="star" style="width:1.5px;height:1.5px;top:50%;left:5%;--d:3.1s;--delay:.9s"></div>
 
   <img class="logo-w" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
-
-  <div class="ayat">
-  خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ
-  </div>
-  <div class="arti">
-  "Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya."
-  </div>
+  <div class="ayat">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</div>
+  <div class="arti">"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya."</div>
   <div class="sumber">— HR. Ahmad, Ath-Thabrani, Al-Mu'jam Al-Ausath</div>
-
   <button class="btn-masuk" onclick="masuk()">بِسْمِ اللَّهِ — MASUK</button>
 </div>
 
 <!-- ══════ MAIN ══════ -->
 <div class="header">
   <img class="logo" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
-  <h1>PEMBAGIAN KELAS SISWA BARU</h1>
+  <h1>PEMBAGIAN KELAS — AWALUSSANAH</h1>
   <div class="sub">SMP ABBS SURAKARTA — TAHUN AJARAN 2026/2027</div>
 </div>
 
@@ -259,49 +276,39 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
 <div class="footer" id="footer"></div>
 
 <script>
-// ── WELCOME ──
-function masuk() {
-  document.getElementById('welcomeScreen').classList.add('hidden');
-  if (data) { render(); }
-  else if (!loading) { init(); }
-  // Kalau loading masih jalan, nanti render otomatis pas selesai
-}
+// ── DATA ──
+var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/awalussanah-2026@master/data/siswa.json';
+var BASE_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/awalussanah-2026@master/data/';
 
-// ── DATA SOURCE ──
-var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
+// ── KELAS MAPPING ──
+var KELAS_KEY = ['7 Putra A','7 Putra B','7 Putra C','7 Putri A','7 Putri B'];
+var KELAS_LABEL = {'7 Putra A':'7A','7 Putra B':'7B','7 Putra C':'7C','7 Putri A':'7D','7 Putri B':'7E'};
+var KELAS_INFO = {'7 Putra A':'Putra 1','7 Putra B':'Putra 2','7 Putra C':'Putra 3','7 Putri A':'Putri 1','7 Putri B':'Putri 2'};
 
-// ── HELPERS ──
-function parseDate(str) {
-  if (!str) return 99999999;
-  var p = str.split('/');
-  return p.length === 3 ? +p[2]*10000 + +p[1]*100 + +p[0] : 99999999;
-}
-function sortByDate(a,b) { return parseDate(a.tgl_daftar) - parseDate(b.tgl_daftar); }
-
-// ── CLASS DIVISION ──
-function calculateClasses(siswa) {
-  var l = siswa.filter(function(s){ return s.program.endsWith('-L'); }).sort(sortByDate);
-  var pr = siswa.filter(function(s){ return s.program.endsWith('-P'); }).sort(sortByDate);
-  function get(p,a){ return a.filter(function(s){ return s.program === p; }); }
-  return {
-    '7A': [].concat(get('ICT-L',l).slice(0,26), get('VCP-L',l).slice(0,3)),
-    '7B': [].concat(get('ICT-L',l).slice(26,52), get('VCP-L',l).slice(3,6)),
-    '7C': [].concat(get('ICT-L',l).slice(52), get('TCP-L',l), get('VCP-L',l).slice(6)),
-    '7D': [].concat(get('ICT-P',pr)),
-    '7E': [].concat(get('TCP-P',pr), get('VCP-P',pr))
-  };
-}
-
-var KELAS_INFO = {'7A':'Putra 1','7B':'Putra 2','7C':'Putra 3','7D':'Putri 1','7E':'Putri 2'};
-var KELAS_URUT = ['7A','7B','7C','7D','7E'];
+var WALAS = {
+  '7 Putra A': {nama:'Ifan Destya Adi Tama, S.Pd, Gr.', panggilan:'Mr Ifan', foto:'walas/walas-3.png'},
+  '7 Putra B': {nama:'Daffa Danendra Rizqi Nugraha, S.Pd.', panggilan:'Mr Danen', foto:'walas/walas-4.png'},
+  '7 Putra C': {nama:'Hang Sakti Abdullah, S.Pd.', panggilan:'Mr Hang', foto:'walas/walas-5.png'},
+  '7 Putri A': {nama:'Aulia Qisthi Rosyada, S.Pd., Gr.', panggilan:'Ms Qisti', foto:'walas/walas-1.png'},
+  '7 Putri B': {nama:'Charlieta Nova Putri Fedito, S.Kom', panggilan:'Ms Lita', foto:'walas/walas-2.png'}
+};
+var QR = {'7 Putra A':'qr/qr-7A.png','7 Putra B':'qr/qr-7B.png','7 Putra C':'qr/qr-7C.png','7 Putri A':'qr/qr-7D.png','7 Putri B':'qr/qr-7E.png'};
 
 // ── STATE ──
 var data = null;
 var loading = false;
 var loadErr = null;
-var tabAktif = '7A';
+var tabAktif = KELAS_KEY[0];
+var bgStarted = false;
 
-// ── FETCH DATA ──
+// ── WELCOME ──
+function masuk() {
+  document.getElementById('welcomeScreen').classList.add('hidden');
+  if (data) { render(); }
+  else if (!loading) { init(); }
+}
+
+// ── FETCH ──
 async function init() {
   loading = true; loadErr = null; render();
   try {
@@ -317,203 +324,222 @@ async function init() {
   }
 }
 
-// ── TAB SWITCH ──
+// ── TAB ──
 function pilih(k) {
   tabAktif = k;
   var inp = document.getElementById('searchInput');
-  if (inp) { inp.value = ''; }
+  if (inp) inp.value = '';
   var btn = document.getElementById('clearBtn');
   if (btn) btn.classList.remove('show');
+  var tabBar = document.getElementById('tabBar');
+  if (tabBar) tabBar.classList.remove('mencari');
   renderTable();
   highlightTab();
   var card = document.getElementById('card-container');
-  if (card) card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  if (card) card.scrollIntoView({ behavior:'smooth', block:'nearest' });
 }
-
 function highlightTab() {
   var tabs = document.querySelectorAll('.tab');
-  for (var i = 0; i < tabs.length; i++) {
-    tabs[i].classList.toggle('active', tabs[i].dataset.kelas === tabAktif);
-  }
+  for (var i=0;i<tabs.length;i++) tabs[i].classList.toggle('active',tabs[i].dataset.kelas===tabAktif);
 }
 
 // ── RENDER ──
 function render() {
-  var app = document.getElementById('app');
-  var ft = document.getElementById('footer');
-
+  var app = document.getElementById('app'), ft = document.getElementById('footer');
   if (loading) {
     app.innerHTML = '<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat data...</div></div>';
-    ft.innerHTML = '';
-    return;
+    ft.innerHTML = ''; return;
   }
   if (loadErr) {
-    app.innerHTML = '<div class="error"><div class="error-icon">⚠️</div><div class="error-text">Gagal memuat data</div><div class="error-detail">' + loadErr + '</div><button class="btn-retry" onclick="init()">🔄 Coba Lagi</button></div>';
-    ft.innerHTML = '';
-    return;
+    app.innerHTML = '<div class="error"><div class="error-icon">⚠️</div><div class="error-text">Gagal memuat data</div><div class="error-detail">'+loadErr+'</div><button class="btn-retry" onclick="init()">🔄 Coba Lagi</button></div>';
+    ft.innerHTML = ''; return;
   }
   if (!data || !data.siswa || !data.siswa.length) {
-    app.innerHTML = '<div class="error"><div class="error-text">Data tidak tersedia</div></div>';
-    return;
+    app.innerHTML = '<div class="error"><div class="error-text">Data tidak tersedia</div></div>'; return;
   }
 
   var html = '<div class="tab-bar" id="tabBar">';
-  for (var i = 0; i < KELAS_URUT.length; i++) {
-    var k = KELAS_URUT[i];
-    html += '<button class="tab' + (tabAktif === k ? ' active' : '') + '" data-kelas="' + k + '" onclick="pilih(\'' + k + '\')">' + k + '</button>';
+  for (var i=0;i<KELAS_KEY.length;i++) {
+    var k = KELAS_KEY[i];
+    html += '<button class="tab'+(tabAktif===k?' active':'')+'" data-kelas="'+k+'" onclick="pilih(\''+k+'\')">'+KELAS_LABEL[k]+'</button>';
   }
   html += '</div>';
 
-  html += '<div class="search-wrap">' +
-    '<span class="icon">🔍</span>' +
-    '<input type="text" id="searchInput" placeholder="Cari nama siswa di semua kelas..." oninput="cariSiswa(this)" autocomplete="off">' +
-    '<button class="clear" id="clearBtn" onclick="resetCari()">✕ Hapus</button>' +
+  html += '<div class="search-wrap">'+
+    '<span class="icon">🔍</span>'+
+    '<input type="text" id="searchInput" placeholder="Cari nama siswa di semua kelas..." oninput="cariSiswa(this)" autocomplete="off">'+
+    '<button class="clear" id="clearBtn" onclick="resetCari()">✕ Hapus</button>'+
     '</div>';
 
   html += '<div id="card-container"></div>';
-
   app.innerHTML = html;
   renderTable();
-
-  ft.innerHTML = 'Data: ' + (data.per_tanggal || '-') + ' • <a href="https://pps2627.vercel.app" target="_blank">Kelola Data</a>';
+  ft.innerHTML = 'Data siswa: '+data.siswa.length+' • <a href="https://awwalussanahsmpabbs.vercel.app" target="_blank">Portal Awalussanah</a>';
 }
 
 // ── SEARCH ──
 function cariSiswa(input) {
   var q = input.value.trim();
   var btn = document.getElementById('clearBtn');
-  if (btn) btn.classList.toggle('show', q.length > 0);
-
+  if (btn) btn.classList.toggle('show', q.length>0);
   var tabBar = document.getElementById('tabBar');
-  if (tabBar) tabBar.classList.toggle('mencari', q.length > 0);
-
+  if (tabBar) tabBar.classList.toggle('mencari', q.length>0);
   renderTable(q);
 }
-
 function resetCari() {
   var inp = document.getElementById('searchInput');
-  if (inp) { inp.value = ''; }
+  if (inp) inp.value = '';
   var btn = document.getElementById('clearBtn');
   if (btn) btn.classList.remove('show');
-
   var tabBar = document.getElementById('tabBar');
   if (tabBar) tabBar.classList.remove('mencari');
-
   renderTable('');
+}
+
+// ── BUILD KELAS DATA ──
+function groupByKelas() {
+  var byKelas = {};
+  for (var i=0;i<KELAS_KEY.length;i++) byKelas[KELAS_KEY[i]] = [];
+  for (var i=0;i<data.siswa.length;i++) {
+    var s = data.siswa[i];
+    if (byKelas[s.kelas]) byKelas[s.kelas].push(s);
+  }
+  for (var i=0;i<KELAS_KEY.length;i++) {
+    byKelas[KELAS_KEY[i]].sort(function(a,b){ return a.n.localeCompare(b.n); });
+  }
+  return byKelas;
 }
 
 // ── RENDER TABLE ──
 function renderTable(query) {
   if (!data || !data.siswa) return;
-  if (query === undefined) query = '';
-
-  var kls = calculateClasses(data.siswa);
+  if (query===undefined) query = '';
   var q = query.toLowerCase().trim();
+  var byKelas = groupByKelas();
 
-  // ── Search mode: cari di SEMUA kelas ──
+  // ── SEARCH MODE ──
   if (q) {
-    var semuaHasil = [];
-    for (var i = 0; i < KELAS_URUT.length; i++) {
-      var k = KELAS_URUT[i];
-      var siswaDiKelas = kls[k] || [];
-      for (var j = 0; j < siswaDiKelas.length; j++) {
-        if (siswaDiKelas[j].nama.toLowerCase().indexOf(q) !== -1) {
-          semuaHasil.push({ siswa: siswaDiKelas[j], kelas: k });
-        }
+    var semua = [];
+    for (var i=0;i<KELAS_KEY.length;i++) {
+      var k = KELAS_KEY[i];
+      var list = byKelas[k] || [];
+      for (var j=0;j<list.length;j++) {
+        if (list[j].n.toLowerCase().indexOf(q)!==-1) semua.push({siswa:list[j], kelas:k});
       }
     }
-
-    var byKelas = {};
-    for (var i = 0; i < semuaHasil.length; i++) {
-      var h = semuaHasil[i];
-      if (!byKelas[h.kelas]) byKelas[h.kelas] = [];
-      byKelas[h.kelas].push(h.siswa);
+    var byK = {};
+    for (var i=0;i<semua.length;i++) {
+      var h = semua[i];
+      if (!byK[h.kelas]) byK[h.kelas] = [];
+      byK[h.kelas].push(h.siswa);
     }
-
-    var totalHasil = semuaHasil.length;
-    var totalSiswa = 0;
-    for (var i = 0; i < KELAS_URUT.length; i++) {
-      totalSiswa += (kls[KELAS_URUT[i]] || []).length;
-    }
-
+    var totalHasil = semua.length;
+    var totalSiswa = data.siswa.length;
     var allRows = '';
-    var urutKelas = KELAS_URUT.filter(function(k){ return byKelas[k]; });
-    for (var i = 0; i < urutKelas.length; i++) {
-      var k = urutKelas[i];
-      var list = byKelas[k];
-
-      allRows += '<tr class="grup-header"><td colspan="2">▸ ' + k + ' — ' + KELAS_INFO[k] + ' <span style="color:var(--text3);font-weight:400">(' + list.length + ')</span></td></tr>';
-
-      for (var j = 0; j < list.length; j++) {
-        var s = list[j];
-        var namaArr = s.nama.split(' ');
-        var inisial = (namaArr[0] ? namaArr[0][0] : '') + (namaArr[1] ? namaArr[1][0] : '');
-        var warna = j % 3 === 0 ? '#d4a853' : (j % 3 === 1 ? '#7c8cd4' : '#6bb5a0');
-        allRows += '<tr><td class="no-col">' + (j + 1) + '</td><td class="nama">' +
-          '<span class="avatar" style="background:' + warna + '">' + inisial + '</span>' + s.nama +
-          '</td></tr>';
+    var urut = KELAS_KEY.filter(function(k){ return byK[k]; });
+    for (var i=0;i<urut.length;i++) {
+      var k = urut[i];
+      var list = byK[k];
+      allRows += '<tr class="grup-header"><td colspan="5">▸ '+KELAS_LABEL[k]+' — '+KELAS_INFO[k]+' <span style="color:var(--text3);font-weight:400">('+list.length+')</span></td></tr>';
+      for (var j=0;j<list.length;j++) {
+        allRows += rowSiswa(list[j], j);
       }
     }
-
     var card = document.getElementById('card-container');
     if (!card) return;
-
-    card.innerHTML =
-      '<div class="kelas-card">' +
-        '<div class="kelas-header">' +
-          '<div class="kiri">' +
-            '<span class="kode semua">🔍</span>' +
-            '<span class="info">Hasil pencarian</span>' +
-          '</div>' +
-          '<span class="count">' + totalHasil + '/' + totalSiswa + ' siswa</span>' +
-        '</div>' +
-        '<div class="card-body"><table>' +
-          '<thead><tr><th style="width:24px">No</th><th>Nama Siswa</th></tr></thead><tbody>' +
-          (allRows || '<tr><td colspan="2"><div class="empty">Tidak ada siswa dengan nama "' + query + '"</div></td></tr>') +
-          '</tbody></table></div>' +
-      '</div>';
-
+    card.innerHTML = '<div class="kelas-card">'+
+      '<div class="kelas-hero"><div class="kelas-hero-left">'+
+      '<div class="kode" style="font-size:16px">🔍 Hasil Pencarian</div>'+
+      '<div class="counts"><span class="count-badge total">'+totalHasil+'/'+totalSiswa+' siswa</span></div>'+
+      '</div></div>'+
+      '<div class="card-body"><table><thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th><th>No. WA</th></tr></thead><tbody>'+
+      (allRows || '<tr><td colspan="5"><div class="empty">Tidak ada siswa dengan nama "'+query+'"</div></td></tr>')+
+      '</tbody></table></div></div>';
     return;
   }
 
-  // ── Normal mode ──
-  var siswa = kls[tabAktif] || [];
-  var info = KELAS_INFO[tabAktif] || '';
+  // ── NORMAL MODE ──
+  var siswa = byKelas[tabAktif] || [];
+  var w = WALAS[tabAktif] || {};
+  var qr = QR[tabAktif] || '';
+  var isPutri = tabAktif.indexOf('Putri')!==-1;
+  var lCount = 0, pCount = 0;
+  for (var i=0;i<siswa.length;i++) {
+    if (siswa[i].g==='L') lCount++; else pCount++;
+  }
 
   var rows = '';
-  if (siswa.length === 0) {
-    rows = '<tr><td colspan="2"><div class="empty">Belum ada siswa</div></td></tr>';
+  if (siswa.length===0) {
+    rows = '<tr><td colspan="5"><div class="empty">Belum ada siswa</div></td></tr>';
   } else {
-    for (var i = 0; i < siswa.length; i++) {
-      var s = siswa[i];
-      var namaArr = s.nama.split(' ');
-      var inisial = (namaArr[0] ? namaArr[0][0] : '') + (namaArr[1] ? namaArr[1][0] : '');
-      var warna = i % 3 === 0 ? '#d4a853' : (i % 3 === 1 ? '#7c8cd4' : '#6bb5a0');
-      rows += '<tr><td class="no-col">' + (i + 1) + '</td><td class="nama"><span class="avatar" style="background:' + warna + '">' + inisial + '</span>' + s.nama + '</td></tr>';
+    for (var i=0;i<siswa.length;i++) {
+      rows += rowSiswa(siswa[i], i);
     }
   }
 
   var card = document.getElementById('card-container');
   if (!card) return;
 
+  // Hero with walas
+  var heroRight = '';
+  if (w.foto) {
+    heroRight += '<img class="foto-walas" src="'+BASE_URL+w.foto+'" alt="'+w.panggilan+'">';
+    heroRight += '<span class="panggilan">'+w.panggilan+'</span>';
+  }
+  if (qr) {
+    heroRight += '<div class="qr-wrap"><img src="'+BASE_URL+qr+'" alt="QR '+KELAS_LABEL[tabAktif]+'"><span class="qr-label">Grup WA</span></div>';
+  }
+
   card.innerHTML =
-    '<div class="kelas-card">' +
-      '<div class="kelas-header">' +
-        '<div class="kiri">' +
-          '<span class="kode">' + tabAktif + '</span>' +
-          '<span class="info">' + info + '</span>' +
-        '</div>' +
-        '<span class="count">' + siswa.length + ' siswa</span>' +
-      '</div>' +
-      '<div class="card-body"><table>' +
-        '<thead><tr><th style="width:24px">No</th><th>Nama Siswa</th></tr></thead><tbody>' +
-        rows +
-        '</tbody></table></div>' +
+    '<div class="kelas-card">'+
+      '<div class="kelas-hero">'+
+        '<div class="kelas-hero-left">'+
+          '<div class="kode">'+KELAS_LABEL[tabAktif]+' — '+KELAS_INFO[tabAktif]+'</div>'+
+          '<div class="walas-nama">Wali Kelas: <strong>'+(w.nama||'-')+'</strong></div>'+
+          '<div class="counts">'+
+            (lCount>0?'<span class="count-badge laki">♂ '+lCount+' Laki-laki</span>':'')+
+            (pCount>0?'<span class="count-badge perempuan">♀ '+pCount+' Perempuan</span>':'')+
+            '<span class="count-badge total">Total: '+siswa.length+' Siswa</span>'+
+          '</div>'+
+        '</div>'+
+        '<div class="kelas-hero-right">'+heroRight+'</div>'+
+      '</div>'+
+      '<div class="card-body"><table>'+
+        '<thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th><th>No. WA</th></tr></thead><tbody>'+
+        rows+
+        '</tbody></table></div>'+
     '</div>';
 }
 
-// ── AUTO START: fetch data di background supaya pas masuk udah siap ──
-var bgStarted = false;
+function rowSiswa(s, i) {
+  var namaArr = s.n.split(' ');
+  var inisial = (namaArr[0]?namaArr[0][0]:'')+(namaArr[1]?namaArr[1][0]:'');
+  var warna = i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
+  var jkClass = s.g==='L'?'l':'p';
+  var jkLabel = s.g==='L'?'♂ L':'♀ P';
+
+  var waHtml = '-';
+  if (s.wa) {
+    var parts = s.wa.split('/');
+    var links = [];
+    for (var w=0;w<parts.length;w++) {
+      var d = parts[w].trim();
+      var num = d.replace(/\D/g,'');
+      if (!num) continue;
+      var link = num.charAt(0)==='0'?'62'+num.substring(1):(num.indexOf('62')===0?num:'62'+num);
+      links.push('<a href="https://wa.me/'+link+'" target="_blank" class="wa-link">💬 WA</a>');
+    }
+    if (links.length) waHtml = links.join(' <span class="wa-sep">/</span> ');
+  }
+
+  return '<tr><td class="no-col">'+(i+1)+'</td>'+
+    '<td class="nama"><span class="avatar" style="background:'+warna+'">'+inisial+'</span>'+s.n+'</td>'+
+    '<td class="jk-cell"><span class="'+jkClass+'">'+jkLabel+'</span></td>'+
+    '<td class="asal">'+s.s+'</td>'+
+    '<td class="wa-cell">'+waHtml+'</td></tr>';
+}
+
+// ── BACKGROUND FETCH ──
 setTimeout(function(){
   if (!data && !loading && !bgStarted) {
     bgStarted = true;
@@ -523,12 +549,10 @@ setTimeout(function(){
       return r.json();
     }).then(function(d){
       data = d; loading = false;
-      var ws = document.getElementById('welcomeScreen');
-      if (ws.classList.contains('hidden')) render();
+      if (document.getElementById('welcomeScreen').classList.contains('hidden')) render();
     }).catch(function(e){
       loading = false; loadErr = e.message;
-      var ws = document.getElementById('welcomeScreen');
-      if (ws.classList.contains('hidden')) render();
+      if (document.getElementById('welcomeScreen').classList.contains('hidden')) render();
     });
   }
 }, 100);

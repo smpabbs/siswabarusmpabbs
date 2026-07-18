@@ -1,19 +1,19 @@
-# Pembagian Kelas Siswa Baru SMP ABBS 2026/2027
+# Pembagian Kelas — Awalussanah SMP ABBS 2026/2027
 
-**Viewer publik** — menampilkan pembagian kelas siswa baru (7A–7E).
+**Portal pembagian kelas siswa baru** untuk matrikulasi Awalussanah.
 
 🌐 **URL:** https://siswabarusmpabbs.vercel.app
 
-## Cara Kerja
+## Sumber Data
 
-- Halaman ini **fetch data.json** langsung dari repo utama [`smpabbs/pps-pembagian-kelas`](https://github.com/smpabbs/pps-pembagian-kelas)
-- Setiap refresh menampilkan **pembagian kelas terbaru** — otomatis
-- **Untuk siswa** — cukup lihat nama dan kelasnya saja
-- Edit data dilakukan di [pps2627.vercel.app](https://pps2627.vercel.app) (khusus admin)
+Data diambil dari **`smpabbs/awalussanah-2026`** → `data/siswa.json` via jsDelivr CDN.
 
 ## Fitur
 
-- ✅ Tampilkan 5 kelas (7A–7E) hasil pembagian
-- ✅ Accordion per kelas — klik header untuk buka/tutup
-- ✅ Auto-sync dengan data terbaru
-- ✅ Tampilan bersih, mobile-friendly
+- ✅ 5 kelas: 7A (Putra 1), 7B (Putra 2), 7C (Putra 3), 7D (Putri 1), 7E (Putri 2)
+- ✅ Tab navigasi per kelas
+- ✅ Info wali kelas + foto + QR grup WA
+- ✅ Search across all classes
+- ✅ Tabel: No, Nama, JK, Asal Sekolah, No WA (link langsung)
+- ✅ Welcome screen dengan hadits
+- ✅ Dark theme kalem
