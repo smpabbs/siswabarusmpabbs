@@ -12,10 +12,8 @@ body{
   background:radial-gradient(ellipse at top,#0f1a2e,#080e1a);color:var(--text);min-height:100vh
 }
 .welcome{
-  position:fixed;inset:0;z-index:9999;
-  background:radial-gradient(ellipse at center,#0f1a2e 0%,#080e1a 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:24px;text-align:center;
+  position:fixed;inset:0;z-index:9999;background:radial-gradient(ellipse at center,#0f1a2e 0%,#080e1a 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;
   transition:opacity .6s,visibility .6s
 }
 .welcome.hidden{opacity:0;visibility:hidden;pointer-events:none}
@@ -28,14 +26,14 @@ body{
 .welcome .btn{
   margin-top:28px;padding:12px 40px;border-radius:10px;
   background:linear-gradient(135deg,var(--gold),var(--gold2));
-  color:#0c1222;font-weight:700;font-size:14px;border:none;
-  cursor:pointer;transition:all .3s;position:relative;z-index:1;font-family:inherit;
+  color:#0c1222;font-weight:700;font-size:14px;border:none;cursor:pointer;
+  transition:all .3s;position:relative;z-index:1;font-family:inherit;
   box-shadow:0 4px 20px rgba(212,168,83,.2)
 }
-.welcome .btn:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(212,168,83,.3)}
+.welcome .btn:hover{transform:translateY(-2px)}
 .header{text-align:center;padding:28px 20px 12px}
 .header .logo{width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,168,83,.2);margin-bottom:8px}
-.header h1{font-size:17px;font-weight:800;color:var(--text);letter-spacing:.3px}
+.header h1{font-size:17px;font-weight:800;color:var(--text)}
 .header .sub{font-size:11px;color:var(--text2);margin-top:3px}
 .main-search{max-width:580px;margin:0 auto;padding:16px 16px 0;text-align:center}
 .main-search .sapa{font-size:16px;color:var(--text2);margin-bottom:4px;line-height:1.7}
@@ -71,21 +69,14 @@ body{
 .result{display:none;margin-top:32px;animation:fadeUp .4s ease}
 .result.show{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.student-card{
-  background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:0;
-  max-width:560px;margin:0 auto;box-shadow:0 4px 24px rgba(0,0,0,.25);overflow:hidden
-}
-.student-card .card-top{
-  background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(45,212,191,.04));
-  padding:24px 24px 20px;border-bottom:1px solid var(--border)
-}
+
+/* Student Card */
+.student-card{background:var(--bg3);border:1px solid var(--border);border-radius:16px;margin:0 auto;box-shadow:0 4px 24px rgba(0,0,0,.25);overflow:hidden;max-width:560px}
+.student-card .card-top{background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(45,212,191,.04));padding:24px 24px 20px;border-bottom:1px solid var(--border)}
 .student-card .row{display:flex;gap:16px;align-items:center}
-.student-card .avatar-lg{
-  width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:24px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3)
-}
+.student-card .avatar-lg{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3)}
 .student-card .info{flex:1}
-.student-card .info .nama-lg{font-size:20px;font-weight:700;color:var(--text);line-height:1.3}
+.student-card .info .nama-lg{font-size:20px;font-weight:700;color:var(--text)}
 .student-card .info .kelas-lg{font-size:15px;color:var(--gold);font-weight:600;margin-top:4px}
 .student-card .card-body{padding:20px 24px}
 .student-card .walas-info{font-size:14px;color:var(--text2);line-height:1.7}
@@ -103,14 +94,12 @@ body{
 .student-card .wa-actions a.grup:hover{background:rgba(45,212,191,.18);border-color:rgba(45,212,191,.35)}
 .student-card .wa-actions a.angkatan{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
 .student-card .wa-actions a.angkatan:hover{background:rgba(212,168,83,.18);border-color:rgba(212,168,83,.35)}
-.wa-info-box{
-  margin-top:12px;padding:14px 16px;border-radius:10px;
-  background:rgba(255,255,255,.03);border:1px solid var(--border);
-  font-size:12px;color:var(--text3);line-height:1.7
-}
+.wa-info-box{margin-top:12px;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;color:var(--text3);line-height:1.7}
 .wa-info-box strong{color:var(--text2)}
 .wa-info-box .wajib{color:var(--teal);font-weight:600}
 .wa-info-box .dilarang{color:#ef4444;font-weight:600}
+
+/* Class Table */
 .class-section{margin-top:28px;max-width:700px;margin-left:auto;margin-right:auto}
 .class-section .class-title{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px;text-align:center}
 .table-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -122,32 +111,24 @@ tr:hover td{background:rgba(212,168,83,.04)}
 tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 .no{color:var(--text3);width:28px;text-align:center;font-size:12px}
 .nama-cell{font-weight:500}
-.nama-cell .avatar-sm{
-  display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;
-  font-size:9px;font-weight:700;color:#fff;margin-right:8px;flex-shrink:0
-}
-.jk{width:40px;text-align:center;font-size:12px}
-.jk.l{color:var(--teal)}.jk.p{color:var(--gold)}
+.nama-cell .avatar-sm{display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;margin-right:8px;flex-shrink:0}
+.jk{width:40px;text-align:center;font-size:12px}.jk.l{color:var(--teal)}.jk.p{color:var(--gold)}
 .asal{color:var(--text2);font-size:12px}
 .highlight td{background:rgba(212,168,83,.08)!important}
 .highlight td.nama-cell{color:var(--gold);font-weight:700}
-.btn-secondary{
-  display:inline-block;padding:10px 24px;border-radius:10px;
-  background:var(--bg4);color:var(--text2);border:1px solid var(--border);
-  font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;
-  font-family:inherit;text-decoration:none
-}
+
+.btn-secondary{display:inline-block;padding:10px 28px;border-radius:10px;background:var(--bg4);color:var(--text2);border:1px solid var(--border);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit;text-decoration:none}
 .btn-secondary:hover{background:var(--border);color:var(--text)}
-.back-wrap{text-align:center;margin-top:24px}
-.back-wrap .btn-secondary{padding:10px 28px}
-.footer-nav{text-align:center;margin-top:20px;padding-bottom:30px}
+.footer-nav{text-align:center;margin-bottom:20px}
+
 .loading{text-align:center;padding:60px 20px}
 .spinner{display:inline-block;width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{color:var(--text3);font-size:13px;margin-top:10px}
+#app-loading{display:block}
+
 @media(max-width:480px){
-  .student-card .card-top{padding:16px}
-  .student-card .card-body{padding:16px}
+  .student-card .card-top{padding:16px}.student-card .card-body{padding:16px}
   .student-card .avatar-lg{width:48px;height:48px;font-size:20px}
   .student-card .info .nama-lg{font-size:17px}
   .student-card .wa-actions a{min-width:auto;padding:10px 14px;font-size:12px}
@@ -170,243 +151,221 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015)}
   <div class="ayat">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</div>
   <div class="arti">"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya."</div>
   <div class="sumber">— HR. Ahmad, Ath-Thabrani, Al-Mu'jam Al-Ausath</div>
-  <button class="btn" onclick="masuk()">بِسْمِ اللَّهِ — MASUK</button>
+  <button class="btn" id="btnMasuk">بِسْمِ اللَّهِ — MASUK</button>
 </div>
 
-<div class="header" id="header">
+<div class="header">
   <img class="logo" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
   <h1>PEMBAGIAN KELAS SISWA BARU</h1>
   <div class="sub">SMP ABBS SURAKARTA — TAHUN AJARAN 2026/2027</div>
 </div>
 
-<div class="main-search" id="mainSearch">
-  <div class="sapa">
-    Assalamu'alaikum wr wb 👋<br>
-    Selamat datang, calon siswa baru!<br>
-    <strong>Cari namamu</strong> untuk mengetahui kelas dan informasi lengkap.
-  </div>
-  <div class="sapa2">Ketik nama lengkap atau sebagian namamu</div>
-  <div class="search-box">
-    <span class="icon">🔍</span>
-    <input type="text" id="searchInput" placeholder="Cari namamu..." autocomplete="off">
-    <div class="suggestions" id="suggestions"></div>
+<div id="appContainer">
+  <div class="loading" id="app-loading">
+    <div class="spinner"></div>
+    <div class="loading-text">Memuat data...</div>
   </div>
 </div>
 
-<div class="result" id="result"></div>
-
 <script>
-var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
-var WALAS = {
-  '7A':{nama:'Mr Hang',cp:'+62 895-2903-2377',panggilan:'Mr Hang',warna:'#0d7377',wa_grup:'https://chat.whatsapp.com/GILUNPKKbsj7zuc5mXV2uc?s=cl&p=a&ilr=1&amv=2'},
-  '7B':{nama:'Mr Joko',cp:'+62 858-4222-0006',panggilan:'Mr Joko',warna:'#1a6b8a',wa_grup:'https://chat.whatsapp.com/LdLclfvwc2c044gHVjSz76?s=sh&p=a&ilr=4&amv=0'},
-  '7C':{nama:'Mr Sharih',cp:'+62 857-2500-7383',panggilan:'Mr Sharih',warna:'#2a5a2a',wa_grup:'https://chat.whatsapp.com/CnrhoOmf4qaCLjkdzkeYI3?s=cl&p=a&ilr=0'},
-  '7D':{nama:'Ms Binti',cp:'+62 857-2732-0047',panggilan:'Ms Binti',warna:'#b45309',wa_grup:'https://chat.whatsapp.com/Dxs0jto6kYF7kRE8GyeJDI?s=cl&p=a&ilr=0&amv=2'},
-  '7E':{nama:'Ms Putri',cp:'+62 856-4664-2303',panggilan:'Ms Putri',warna:'#7c3aed',wa_grup:'https://chat.whatsapp.com/HNoc5OH6cJWBEKNK0uzKzn?mode=gi_t'}
-};
-var WA_ANGKATAN = 'https://chat.whatsapp.com/DbypFi9BvAc43gl4aA8OFP?s=cl&p=a&ilr=0';
-var KELAS_INFO = {'7A':'Putra 1','7B':'Putra 2','7C':'Putra 3','7D':'Putri 1','7E':'Putri 2'};
-var KELAS_URUT = ['7A','7B','7C','7D','7E'];
-var data = null, loading = false, loadErr = null, bgStarted = false;
-var terpilih = null;
-
-function p(s){return s.split('/').reduce(function(a,c,i){return a+(+c)*(i==0?1:i==1?100:10000)},0)}
-function ds(a,b){return p(a.tgl_daftar)-p(b.tgl_daftar)}
-
-function kelas(siswa){
-  var l=siswa.filter(function(s){return s.program.endsWith('-L')}).sort(ds);
-  var pr=siswa.filter(function(s){return s.program.endsWith('-P')}).sort(ds);
-  function g(p,a){return a.filter(function(s){return s.program===p})}
-  return {
-    '7A':[].concat(g('ICT-L',l).slice(0,26),g('VCP-L',l).slice(0,3)),
-    '7B':[].concat(g('ICT-L',l).slice(26,52),g('VCP-L',l).slice(3,6)),
-    '7C':[].concat(g('ICT-L',l).slice(52),g('TCP-L',l),g('VCP-L',l).slice(6)),
-    '7D':[].concat(g('ICT-P',pr)),
-    '7E':[].concat(g('TCP-P',pr),g('VCP-P',pr))
+(function(){
+  var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
+  var WALAS = {
+    '7A':{nama:'Mr Hang',cp:'+62 895-2903-2377',panggilan:'Mr Hang',warna:'#0d7377',wa_grup:'https://chat.whatsapp.com/GILUNPKKbsj7zuc5mXV2uc?s=cl&p=a&ilr=1&amv=2'},
+    '7B':{nama:'Mr Joko',cp:'+62 858-4222-0006',panggilan:'Mr Joko',warna:'#1a6b8a',wa_grup:'https://chat.whatsapp.com/LdLclfvwc2c044gHVjSz76?s=sh&p=a&ilr=4&amv=0'},
+    '7C':{nama:'Mr Sharih',cp:'+62 857-2500-7383',panggilan:'Mr Sharih',warna:'#2a5a2a',wa_grup:'https://chat.whatsapp.com/CnrhoOmf4qaCLjkdzkeYI3?s=cl&p=a&ilr=0'},
+    '7D':{nama:'Ms Binti',cp:'+62 857-2732-0047',panggilan:'Ms Binti',warna:'#b45309',wa_grup:'https://chat.whatsapp.com/Dxs0jto6kYF7kRE8GyeJDI?s=cl&p=a&ilr=0&amv=2'},
+    '7E':{nama:'Ms Putri',cp:'+62 856-4664-2303',panggilan:'Ms Putri',warna:'#7c3aed',wa_grup:'https://chat.whatsapp.com/HNoc5OH6cJWBEKNK0uzKzn?mode=gi_t'}
   };
-}
+  var WA_ANGKATAN = 'https://chat.whatsapp.com/DbypFi9BvAc43gl4aA8OFP?s=cl&p=a&ilr=0';
+  var KELAS_INFO = {'7A':'Putra 1','7B':'Putra 2','7C':'Putra 3','7D':'Putri 1','7E':'Putri 2'};
+  var KELAS_URUT = ['7A','7B','7C','7D','7E'];
 
-function masuk(){
-  document.getElementById('welcome').classList.add('hidden');
-  if (data) { showSearch(); }
-  else if (loading) { showLoading(); }
-  else { init(); }
-}
+  var data = null;
+  var appEl = document.getElementById('appContainer');
+  var welcomeEl = document.getElementById('welcome');
 
-async function init(){
-  loading=true;showLoading();
-  try{
-    var r=await fetch(DATA_URL);
-    if(!r.ok)throw Error('Gagal memuat');
-    data=await r.json();loading=false;showSearch();
-  }catch(e){loading=false;showError(e.message)}
-}
+  function p(s){return s.split('/').reduce(function(a,c,i){return a+(+c)*(i==0?1:i==1?100:10000)},0)}
+  function ds(a,b){return p(a.tgl_daftar)-p(b.tgl_daftar)}
 
-function showLoading(){
-  document.getElementById('result').classList.add('show');
-  document.getElementById('result').innerHTML='<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat data...</div></div>';
-}
-function showError(m){
-  document.getElementById('result').classList.add('show');
-document.getElementById('result').innerHTML='<div class="error">⚠️ '+m+'<br><br><button onclick="init()" style="padding:8px 22px;border-radius:8px;background:var(--gold);border:none;color:#0c1222;font-weight:600;cursor:pointer;font-family:inherit">Coba Lagi</button></div>';
-}
-
-function showSearch(){
-  document.getElementById('result').classList.remove('show');
-  document.getElementById('result').innerHTML='';
-}
-
-function cariSiswa(q){
-  if(!data||!data.siswa){return}
-  var el=document.getElementById('suggestions');
-  q=q.trim().toLowerCase();
-  if(!q){el.classList.remove('show');return}
-  var hasil=[];
-  for(var i=0;i<data.siswa.length;i++){
-    if(data.siswa[i].nama.toLowerCase().indexOf(q)!==-1)hasil.push(data.siswa[i]);
-    if(hasil.length>=8)break;
+  function hitungKelas(siswa){
+    var l=siswa.filter(function(s){return s.program.endsWith('-L')}).sort(ds);
+    var pr=siswa.filter(function(s){return s.program.endsWith('-P')}).sort(ds);
+    function g(p,a){return a.filter(function(s){return s.program===p})}
+    return {
+      '7A':[].concat(g('ICT-L',l).slice(0,26),g('VCP-L',l).slice(0,3)),
+      '7B':[].concat(g('ICT-L',l).slice(26,52),g('VCP-L',l).slice(3,6)),
+      '7C':[].concat(g('ICT-L',l).slice(52),g('TCP-L',l),g('VCP-L',l).slice(6)),
+      '7D':[].concat(g('ICT-P',pr)),
+      '7E':[].concat(g('TCP-P',pr),g('VCP-P',pr))
+    };
   }
-  if(hasil.length===0){el.classList.remove('show');return}
-  var h='';
-  for(var i=0;i<hasil.length;i++){
-    var s=hasil[i];
-    var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
-    var warna=i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
-    // Find kelas for this student
-    var sk='';
-    for(var k in kelas(data.siswa)){
-      for(var x=0;x<kelas(data.siswa)[k].length;x++){
-        if(kelas(data.siswa)[k][x].id===s.id){sk=k;break}
-      }if(sk)break;
-    }
-    h+='<div class="item" onclick="pilihSiswa('+s.id+')">'+
-      '<span class="avatar" style="background:'+warna+'">'+inial+'</span>'+
-      '<div class="info"><div class="nama">'+s.nama+'</div><div class="detail">'+s.asal_sekolah+'</div></div>'+
-      (sk?'<span class="badge-s">'+sk+'</span>':'')+
-      '</div>';
+
+  function getKelasSiswa(s, kls){
+    for(var k in kls) for(var i=0;i<kls[k].length;i++) if(kls[k][i].id===s.id) return k;
+    return null;
   }
-  el.innerHTML=h;
-  el.classList.add('show');
-}
 
-function pilihSiswa(id){
-  document.getElementById('suggestions').classList.remove('show');
-  document.getElementById('searchInput').blur();
-  var s;
-  for(var i=0;i<data.siswa.length;i++){if(data.siswa[i].id===id){s=data.siswa[i];break}}
-  if(!s)return;
-  terpilih=s;showResult(s);
-}
-
-function showResult(s){
-  var kls=kelas(data.siswa);
-  var kelasSiswa='';
-  for(var k in kls){
-    for(var i=0;i<kls[k].length;i++){
-      if(kls[k][i].id===s.id){kelasSiswa=k;break}
-    }
-    if(kelasSiswa)break;
-  }
-  if(!kelasSiswa)return;
-
-  var w=WALAS[kelasSiswa]||{};
-  var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
-  var info=KELAS_INFO[kelasSiswa]||'';
-
-  var html='<div class="footer-nav" style="margin-bottom:20px;margin-top:0"><button class="btn-secondary" onclick="resetHasil()">← Cari Nama Lain</button></div>'+
-    '<div class="student-card">'+
-    '<div class="card-top">'+
-    '<div class="row">'+
-      '<span class="avatar-lg" style="background:'+(w.warna||'#64748b')+'">'+inial+'</span>'+
-      '<div class="info">'+
-        '<div class="nama-lg">'+s.nama+'</div>'+
-        '<div class="kelas-lg">'+kelasSiswa+' — '+info+'</div>'+
-      '</div>'+
-    '</div>'+
-    '</div>'+
-    '<div class="card-body">'+
-    '<div class="walas-info">'+
-      'Wali Kelas: <strong>'+(w.nama||'-')+'</strong>'+
-      '<span class="cp">📞 '+(w.cp||'')+'</span>'+
-    '</div>'+
-    '<hr class="divider">'+
-    '<div class="wa-label">💬 GRUP WHATSAPP</div>'+
-    '<div class="wa-actions">'+
-      (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="grup">💬 Grup Kelas '+kelasSiswa+'</a>':'')+
-      '<a href="'+WA_ANGKATAN+'" target="_blank" class="angkatan">👥 Grup Angkatan Level 7</a>'+
-    '</div>'+
-    '<div class="wa-info-box">'+
-      '📌 <strong>Grup Kelas</strong> dan <strong>Grup Angkatan</strong> adalah grup <span class="wajib">WAJIB</span> bagi <strong>orang tua/wali</strong>.<br>'+
-      'Semua orang tua/wali <strong>wajib</strong> bergabung di kedua grup.<br>'+
-      'Yang bergabung boleh <strong>Ayah</strong>, <strong>Ibu</strong>, atau <strong>keduanya</strong>.<br>'+
-      '<span class="dilarang">🚫 Siswa dilarang join grup ini.</span> Grup khusus siswa akan diinformasikan oleh wali kelas.'+
-    '</div>'+
-    '</div>'+
-
-  // Class table
-  var list=kls[kelasSiswa]||[];
-  var lCount=list.filter(function(x){return x.program.endsWith('-L')}).length;
-  var pCount=list.filter(function(x){return x.program.endsWith('-P')}).length;
-  var rows='';
-  for(var i=0;i<list.length;i++){
-    var x=list[i];
-    var isMe=x.id===s.id;
-    var arr2=x.nama.split(' '),in2=(arr2[0]?arr2[0][0]:'')+(arr2[1]?arr2[1][0]:'');
+  function rowSiswa(s,i,highlight){
+    var arr=s.nama.split(' '),in2=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
     var w2=i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
-    var jk=x.program.endsWith('-L')?'L':'P';
-    rows+='<tr'+(isMe?' class="highlight"':'')+'>'+
+    var jk=s.program.endsWith('-L')?'L':'P';
+    return '<tr'+(highlight?' class="highlight"':'')+'>'+
       '<td class="no">'+(i+1)+'</td>'+
-      '<td class="nama-cell"><span class="avatar-sm" style="background:'+w2+'">'+in2+'</span>'+x.nama+'</td>'+
+      '<td class="nama-cell"><span class="avatar-sm" style="background:'+w2+'">'+in2+'</span>'+s.nama+'</td>'+
       '<td class="jk '+jk.toLowerCase()+'">'+(jk==='L'?'♂':'♀')+'</td>'+
-      '<td class="asal">'+x.asal_sekolah+'</td></tr>';
+      '<td class="asal">'+s.asal_sekolah+'</td></tr>';
   }
 
-  html+='<div class="class-section">'+
-    '<div class="class-title">👥 '+kelasSiswa+' — '+info+' ('+list.length+' siswa · ♂'+lCount+' ♀'+pCount+')</div>'+
-    '<div class="table-wrap"><table>'+
-      '<thead><tr><th style="width:28px">No</th><th>Nama Siswa</th><th style="width:40px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
-      rows+'</tbody></table></div></div>';
-
-  document.getElementById('result').innerHTML=html;
-  document.getElementById('result').classList.add('show');
-  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function resetHasil(){
-  document.getElementById('result').classList.remove('show');
-  document.getElementById('result').innerHTML='';
-  terpilih=null;
-  var inp=document.getElementById('searchInput');
-  if(inp){inp.value='';inp.focus()}
-  document.getElementById('mainSearch').scrollIntoView({behavior:'smooth',block:'center'});
-  document.getElementById('suggestions').classList.remove('show');
-}
-
-// Close suggestions on outside click
-document.addEventListener('click',function(e){
-  var s=document.getElementById('suggestions');
-  if(s&&!e.target.closest('.search-box'))s.classList.remove('show');
-});
-
-// Event listeners
-document.addEventListener('DOMContentLoaded',function(){
-  var inp=document.getElementById('searchInput');
-  if(inp) inp.addEventListener('input',function(){cariSiswa(this.value)});
-});
-
-// Background fetch
-setTimeout(function(){
-  if(!data&&!loading&&!bgStarted){
-    bgStarted=true;loading=true;
-    fetch(DATA_URL).then(function(r){
-      if(!r.ok)throw Error('gagal');
-      return r.json();
-    }).then(function(d){
-      data=d;loading=false;
-      if(document.getElementById('welcome').classList.contains('hidden'))showSearch();
-    }).catch(function(e){loading=false;loadErr=e.message});
+  function tampilkanHasil(s){
+    var kls=hitungKelas(data.siswa);
+    var kelasSiswa=getKelasSiswa(s,kls);
+    if(!kelasSiswa) return;
+    var w=WALAS[kelasSiswa]||{};
+    var info=KELAS_INFO[kelasSiswa]||'';
+    var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
+    var list=kls[kelasSiswa]||[];
+    var lCount=list.filter(function(x){return x.program.endsWith('-L')}).length;
+    var pCount=list.filter(function(x){return x.program.endsWith('-P')}).length;
+    var rows='';
+    for(var i=0;i<list.length;i++) rows+=rowSiswa(list[i],i,list[i].id===s.id);
+    var html=
+      '<div class="footer-nav"><button class="btn-secondary" id="btnCariLagi">← Cari Nama Lain</button></div>'+
+      '<div class="student-card">'+
+        '<div class="card-top"><div class="row">'+
+          '<span class="avatar-lg" style="background:'+(w.warna||'#64748b')+'">'+inial+'</span>'+
+          '<div class="info">'+
+            '<div class="nama-lg">'+s.nama+'</div>'+
+            '<div class="kelas-lg">'+kelasSiswa+' — '+info+'</div>'+
+          '</div>'+
+        '</div></div>'+
+        '<div class="card-body">'+
+          '<div class="walas-info">Wali Kelas: <strong>'+(w.nama||'-')+'</strong><span class="cp">📞 '+(w.cp||'')+'</span></div>'+
+          '<hr class="divider">'+
+          '<div class="wa-label">💬 GRUP WHATSAPP</div>'+
+          '<div class="wa-actions">'+
+            (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="grup">💬 Grup Kelas '+kelasSiswa+'</a>':'')+
+            '<a href="'+WA_ANGKATAN+'" target="_blank" class="angkatan">👥 Grup Angkatan Level 7</a>'+
+          '</div>'+
+          '<div class="wa-info-box">'+
+            '📌 <strong>Grup Kelas</strong> dan <strong>Grup Angkatan</strong> adalah grup <span class="wajib">WAJIB</span> bagi <strong>orang tua/wali</strong>.<br>'+
+            'Semua orang tua/wali <strong>wajib</strong> bergabung di kedua grup.<br>'+
+            'Yang bergabung boleh <strong>Ayah</strong>, <strong>Ibu</strong>, atau <strong>keduanya</strong>.<br>'+
+            '<span class="dilarang">🚫 Siswa dilarang join grup ini.</span> Grup khusus siswa akan diinformasikan oleh wali kelas.'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="class-section">'+
+        '<div class="class-title">👥 '+kelasSiswa+' — '+info+' ('+list.length+' siswa · ♂'+lCount+' ♀'+pCount+')</div>'+
+        '<div class="table-wrap"><table>'+
+          '<thead><tr><th style="width:28px">No</th><th>Nama Siswa</th><th style="width:40px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
+          rows+'</tbody></table></div></div>';
+    appEl.innerHTML=html;
+    document.getElementById('btnCariLagi').onclick=function(){resetView();};
+    appEl.scrollIntoView({behavior:'smooth',block:'start'});
   }
-},100);
+
+  function resetView(){
+    appEl.innerHTML=tampilkanSearch();
+    document.getElementById('searchInput').focus();
+    pasangListenerSearch();
+  }
+
+  function tampilkanSearch(){
+    return ''+
+      '<div class="main-search">'+
+        '<div class="sapa">Assalamu\'alaikum wr wb 👋<br>Selamat datang, calon siswa baru!<br><strong>Cari namamu</strong> untuk mengetahui kelas dan informasi lengkap.</div>'+
+        '<div class="sapa2">Ketik nama lengkap atau sebagian namamu</div>'+
+        '<div class="search-box">'+
+          '<span class="icon">🔍</span>'+
+          '<input type="text" id="searchInput" placeholder="Cari namamu..." autocomplete="off">'+
+          '<div class="suggestions" id="suggestions"></div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="result" id="result"></div>';
+  }
+
+  function pasangListenerSearch(){
+    var inp=document.getElementById('searchInput');
+    if(!inp) return;
+    inp.addEventListener('input',function(){
+      var q=this.value.trim().toLowerCase();
+      var el=document.getElementById('suggestions');
+      if(!el) return;
+      if(!q||!data){el.classList.remove('show');return;}
+      var hasil=[];
+      for(var i=0;i<data.siswa.length;i++){
+        if(data.siswa[i].nama.toLowerCase().indexOf(q)!==-1){
+          hasil.push(data.siswa[i]);
+          if(hasil.length>=8) break;
+        }
+      }
+      if(hasil.length===0){el.classList.remove('show');return;}
+      var h='';
+      for(var i=0;i<hasil.length;i++){
+        var s=hasil[i];
+        var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
+        var warna=i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
+        var sk=getKelasSiswa(s,hitungKelas(data.siswa))||'';
+        h+='<div class="item" data-id="'+s.id+'">'+
+          '<span class="avatar" style="background:'+warna+'">'+inial+'</span>'+
+          '<div class="info"><div class="nama">'+s.nama+'</div><div class="detail">'+s.asal_sekolah+'</div></div>'+
+          (sk?'<span class="badge-s">'+sk+'</span>':'')+
+          '</div>';
+      }
+      el.innerHTML=h;
+      el.classList.add('show');
+      // Click handlers for each item
+      var items=el.querySelectorAll('.item');
+      for(var i=0;i<items.length;i++){
+        items[i].onclick=function(){
+          var id=parseInt(this.getAttribute('data-id'));
+          el.classList.remove('show');
+          inp.blur();
+          var s=null;
+          for(var j=0;j<data.siswa.length;j++) if(data.siswa[j].id===id){s=data.siswa[j];break;}
+          if(s) tampilkanHasil(s);
+        };
+      }
+    });
+    // Close suggestions on outside click
+    document.addEventListener('click',function(e){
+      var s=document.getElementById('suggestions');
+      if(s&&!e.target.closest('.search-box')) s.classList.remove('show');
+    });
+  }
+
+  function initApp(){
+    var loadingEl=document.getElementById('app-loading');
+    if(loadingEl) loadingEl.style.display='block';
+    var r=new XMLHttpRequest();
+    r.open('GET',DATA_URL,true);
+    r.onload=function(){
+      if(r.status>=200&&r.status<400){
+        try{data=JSON.parse(r.responseText);}catch(e){data=null;}
+        if(data&&data.siswa){
+          appEl.innerHTML=tampilkanSearch();
+          pasangListenerSearch();
+        }else{
+          appEl.innerHTML='<div class="loading">Data tidak tersedia</div>';
+        }
+      }else{
+        appEl.innerHTML='<div class="loading">⚠️ Gagal memuat data. <button onclick="initApp()" style="background:var(--gold);border:none;padding:8px 20px;border-radius:8px;color:#0c1222;font-weight:600;cursor:pointer">Coba Lagi</button></div>';
+      }
+    };
+    r.onerror=function(){
+      appEl.innerHTML='<div class="loading">⚠️ Gagal memuat data. <button onclick="initApp()" style="background:var(--gold);border:none;padding:8px 20px;border-radius:8px;color:#0c1222;font-weight:600;cursor:pointer">Coba Lagi</button></div>';
+    };
+    r.send();
+  }
+
+  // Button handler
+  document.getElementById('btnMasuk').onclick=function(){
+    welcomeEl.classList.add('hidden');
+    appEl.innerHTML='<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat data...</div></div>';
+    initApp();
+  };
+})();
 </script>
 </body>
 </html>
