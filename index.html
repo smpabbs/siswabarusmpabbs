@@ -6,551 +6,341 @@
 <title>Pembagian Kelas Siswa Baru SMP ABBS 2026/2027</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#0c1222;--bg2:#111827;--bg3:#1a2235;--bg4:#1e293b;--border:#2a3346;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--gold:#d4a853;--gold2:#c4953a;--teal:#2dd4bf;--gold-glow:rgba(212,168,83,.12);--shadow:0 4px 24px rgba(0,0,0,.3)}
-
-/* ── WELCOME ── */
-.welcome-overlay{
+:root{--bg:#0c1222;--bg2:#111827;--bg3:#1a2235;--bg4:#1e293b;--border:#2a3346;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--gold:#d4a853;--gold2:#c4953a;--teal:#2dd4bf}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,sans-serif;
+  background:radial-gradient(ellipse at top,#0f1a2e,#080e1a);color:var(--text);min-height:100vh
+}
+.welcome{
   position:fixed;inset:0;z-index:9999;
   background:radial-gradient(ellipse at center,#0f1a2e 0%,#080e1a 100%);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:24px;text-align:center;
-  transition:opacity .6s ease,visibility .6s ease
+  transition:opacity .6s,visibility .6s
 }
-.welcome-overlay.hidden{opacity:0;visibility:hidden;pointer-events:none}
-.welcome-overlay .star{
-  position:absolute;border-radius:50%;background:#fff;opacity:0;
-  animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s)
-}
-@keyframes twinkle{
-  0%,100%{opacity:0;transform:scale(.5)}
-  50%{opacity:.6;transform:scale(1)}
-}
-.welcome-overlay .logo-w{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:18px;position:relative;z-index:1;border:2px solid rgba(212,168,83,.25);box-shadow:0 0 30px rgba(212,168,83,.1)}
-.welcome-overlay .ayat{
-  font-size:20px;font-weight:600;color:var(--gold);line-height:1.6;
-  max-width:460px;position:relative;z-index:1;
-  font-family:'Times New Roman',serif;
-  text-shadow:0 0 40px rgba(212,168,83,.08)
-}
-.welcome-overlay .arti{
-  font-size:13px;color:var(--text2);margin-top:12px;
-  max-width:400px;line-height:1.7;position:relative;z-index:1
-}
-.welcome-overlay .sumber{
-  font-size:11px;color:var(--text3);margin-top:6px;position:relative;z-index:1;font-style:italic
-}
-.welcome-overlay .btn-masuk{
+.welcome.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.welcome .star{position:absolute;border-radius:50%;background:#fff;opacity:0;animation:twinkle var(--d,3s) ease-in-out infinite var(--delay,0s)}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.6;transform:scale(1)}}
+.welcome .logo{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:18px;position:relative;z-index:1;border:2px solid rgba(212,168,83,.25)}
+.welcome .ayat{font-size:20px;font-weight:600;color:var(--gold);line-height:1.6;max-width:460px;position:relative;z-index:1;font-family:'Times New Roman',serif}
+.welcome .arti{font-size:13px;color:var(--text2);margin-top:12px;max-width:400px;position:relative;z-index:1}
+.welcome .sumber{font-size:11px;color:var(--text3);margin-top:6px;position:relative;z-index:1;font-style:italic}
+.welcome .btn{
   margin-top:28px;padding:12px 40px;border-radius:10px;
   background:linear-gradient(135deg,var(--gold),var(--gold2));
   color:#0c1222;font-weight:700;font-size:14px;border:none;
-  cursor:pointer;transition:all .3s;position:relative;z-index:1;
-  font-family:inherit;letter-spacing:.5px;box-shadow:0 4px 20px rgba(212,168,83,.2)
+  cursor:pointer;transition:all .3s;position:relative;z-index:1;font-family:inherit;
+  box-shadow:0 4px 20px rgba(212,168,83,.2)
 }
-.welcome-overlay .btn-masuk:hover{
-  transform:translateY(-2px);box-shadow:0 6px 30px rgba(212,168,83,.3)
+.welcome .btn:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(212,168,83,.3)}
+.header{text-align:center;padding:32px 20px 24px}
+.header .logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,168,83,.2);margin-bottom:10px}
+.header h1{font-size:18px;font-weight:800;color:var(--text)}
+.header .sub{font-size:12px;color:var(--text2);margin-top:4px}
+.main-search{max-width:600px;margin:0 auto;padding:0 16px;text-align:center}
+.main-search .sapa{font-size:15px;color:var(--text2);margin-bottom:6px;line-height:1.6}
+.main-search .sapa strong{color:var(--gold)}
+.main-search .sapa2{font-size:12px;color:var(--text3);margin-bottom:20px}
+.search-box{position:relative;max-width:480px;margin:0 auto}
+.search-box input{
+  width:100%;padding:14px 16px 14px 48px;border-radius:14px;
+  border:1px solid var(--border);background:var(--bg3);color:var(--text);
+  font-size:15px;font-family:inherit;outline:none;transition:all .2s
 }
-.welcome-overlay .btn-masuk:active{transform:translateY(0)}
-
-/* ── BODY ── */
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Inter,sans-serif;
-  background:var(--bg);color:var(--text);min-height:100vh
+.search-box input:focus{border-color:var(--gold);box-shadow:0 0 20px rgba(212,168,83,.1)}
+.search-box input::placeholder{color:var(--text3)}
+.search-box .icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:18px;color:var(--text3)}
+.suggestions{
+  position:absolute;top:calc(100% + 4px);left:0;right:0;
+  background:var(--bg3);border:1px solid var(--border);border-radius:12px;
+  max-height:280px;overflow-y:auto;display:none;z-index:100;
+  box-shadow:0 8px 30px rgba(0,0,0,.4)
 }
-.header{
-  background:linear-gradient(135deg,#0f1a2e 0%,#162240 50%,#1a2a42 100%);
-  padding:24px 20px 32px;text-align:center;position:relative;overflow:hidden;
-  border-bottom:1px solid var(--border)
+.suggestions.show{display:block}
+.suggestions .item{padding:12px 16px;cursor:pointer;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);transition:background .15s;text-align:left}
+.suggestions .item:last-child{border-bottom:none}
+.suggestions .item:hover{background:var(--bg4)}
+.suggestions .item .avatar{
+  width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;color:#fff;flex-shrink:0
 }
-.header::after{
-  content:'';position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 20H50L38 30L43 45L30 35L17 45L22 30L10 20H25Z' fill='rgba(212,168,83,.04)'/%3E%3C/svg%3E") repeat;opacity:.3
+.suggestions .item .info{flex:1}
+.suggestions .item .info .nama{font-weight:600;font-size:14px}
+.suggestions .item .info .detail{font-size:12px;color:var(--text3);margin-top:2px}
+.suggestions .item .badge-s{font-size:11px;color:var(--gold);font-weight:600;background:rgba(212,168,83,.1);padding:2px 10px;border-radius:10px}
+.result{display:none;margin-top:24px;animation:fadeUp .4s ease}
+.result.show{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.student-card{
+  background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:24px;
+  max-width:520px;margin:0 auto;box-shadow:0 4px 20px rgba(0,0,0,.2)
 }
-.header .logo{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(212,168,83,.2);margin-bottom:8px;position:relative}
-.header h1{font-size:17px;font-weight:800;color:var(--text);letter-spacing:.5px;line-height:1.4;position:relative}
-.header .sub{font-size:11px;color:var(--text2);margin-top:3px;position:relative}
-.content{max-width:860px;margin:-18px auto 0;padding:0 12px 20px;position:relative}
-
-/* ── SEARCH ── */
-.search-wrap{
-  background:var(--bg3);border-radius:12px;padding:4px 4px 4px 16px;
-  display:flex;align-items:center;gap:8px;
-  box-shadow:var(--shadow);margin-bottom:12px;
-  border:1px solid var(--border);transition:border-color .2s,box-shadow .2s
+.student-card .row{display:flex;gap:16px;align-items:center}
+.student-card .avatar-lg{
+  width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:22px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3)
 }
-.search-wrap:focus-within{border-color:var(--gold);box-shadow:0 2px 16px var(--gold-glow)}
-.search-wrap .icon{color:var(--text3);font-size:15px;flex-shrink:0}
-.search-wrap input{
-  flex:1;border:none;background:transparent;padding:10px 0;
-  font-size:14px;font-family:inherit;color:var(--text);outline:none
+.student-card .info{flex:1}
+.student-card .info .nama-lg{font-size:18px;font-weight:700;color:var(--text)}
+.student-card .info .kelas-lg{font-size:14px;color:var(--gold);font-weight:600;margin-top:2px}
+.student-card .divider{border:none;border-top:1px solid var(--border);margin:16px 0}
+.student-card .walas-info{font-size:13px;color:var(--text2);line-height:1.6}
+.student-card .walas-info strong{color:var(--teal)}
+.student-card .walas-info .cp{color:var(--text3);font-size:12px}
+.student-card .wa-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.student-card .wa-actions a{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;font-family:inherit
 }
-.search-wrap input::placeholder{color:var(--text3)}
-.search-wrap .clear{
-  display:none;border:none;background:var(--bg4);color:var(--text2);
-  cursor:pointer;padding:5px 10px;border-radius:6px;font-size:12px;font-family:inherit;
-  transition:background .2s;white-space:nowrap;margin-right:2px
-}
-.search-wrap .clear.show{display:block}
-.search-wrap .clear:hover{background:#334155}
-
-/* ── TABS ── */
-.tab-bar{
-  background:var(--bg3);border-radius:12px;padding:5px;display:flex;gap:3px;
-  box-shadow:var(--shadow);margin-bottom:12px;border:1px solid var(--border);
-  transition:opacity .2s
-}
-.tab-bar.mencari{opacity:.45;pointer-events:none}
-.tab{
-  flex:1;text-align:center;padding:10px 0;border-radius:8px;
-  font-size:13px;font-weight:600;color:var(--text2);cursor:pointer;
-  transition:all .25s;border:none;background:none;font-family:inherit
-}
-.tab:hover{color:var(--text);background:var(--bg4)}
-.tab.active{
-  background:linear-gradient(135deg,#1a2a42,#243b5a);color:var(--gold);
-  box-shadow:0 2px 8px rgba(0,0,0,.2)
-}
-
-/* ── CLASS CARD ── */
-.kelas-card{
-  background:var(--bg3);border-radius:14px;
-  box-shadow:var(--shadow);overflow:hidden;
-  border:1px solid var(--border);animation:fadeUp .3s ease;
-  margin-bottom:16px
-}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-
-/* Class header with walas */
-.kelas-hero{
-  padding:18px 20px;
-  background:linear-gradient(135deg,var(--bg2),var(--bg3));
-  border-bottom:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;gap:16px
-}
-.kelas-hero-left{flex:1;min-width:0}
-.kelas-hero-left .kode{
-  font-size:20px;font-weight:800;color:var(--gold);margin-bottom:2px
-}
-.kelas-hero-left .walas-nama{
-  font-size:13px;color:var(--text2);line-height:1.5
-}
-.kelas-hero-left .walas-nama strong{color:var(--teal)}
-.kelas-hero-left .walas-cp{
-  font-size:12px;color:var(--text3);margin-top:2px
-}
-.kelas-hero-left .counts{
-  display:flex;gap:8px;flex-wrap:wrap;margin-top:8px
-}
-.count-badge{
-  padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600
-}
-.count-badge.laki{background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.2)}
-.count-badge.perempuan{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
-.count-badge.total{background:rgba(255,255,255,.05);color:var(--text2);border:1px solid var(--border)}
-.count-badge.wa-group{background:rgba(45,212,191,.08);color:var(--teal);border:1px solid rgba(45,212,191,.15);cursor:pointer;transition:all .2s}
-.count-badge.wa-group:hover{background:rgba(45,212,191,.15);border-color:rgba(45,212,191,.3)}
-.count-badge.wa-angkatan{background:rgba(212,168,83,.08);color:var(--gold);border:1px solid rgba(212,168,83,.15);cursor:pointer;transition:all .2s}
-.count-badge.wa-angkatan:hover{background:rgba(212,168,83,.15);border-color:rgba(212,168,83,.3)}
-
-.kelas-hero-right{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px}
-.kelas-hero-right .avatar-walas{
-  width:52px;height:52px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:18px;font-weight:800;color:#fff;flex-shrink:0;
-  box-shadow:0 2px 12px rgba(0,0,0,.3)
-}
-.kelas-hero-right .panggilan{
-  font-size:10px;font-weight:700;color:var(--gold);text-align:center;letter-spacing:.3px
-}
-.kelas-hero-right .wa-links{
-  display:flex;gap:6px;margin-top:2px
-}
-.kelas-hero-right .wa-links a{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:4px 10px;border-radius:8px;
-  font-size:10px;font-weight:700;color:#fff;text-decoration:none;
-  transition:all .2s
-}
-.kelas-hero-right .wa-links a.grup{background:#1a6b5e}
-.kelas-hero-right .wa-links a.grup:hover{background:#1f8a7a}
-.kelas-hero-right .wa-links a.angkatan{background:#7c5c1e}
-.kelas-hero-right .wa-links a.angkatan:hover{background:#9e7526}
-
-/* ── TABLE ── */
-.card-body{padding:0 0 2px}
-table{width:100%;border-collapse:collapse;font-size:14px}
-th{
-  font-size:11px;color:var(--text3);font-weight:600;
-  padding:10px 18px;text-align:left;
-  border-bottom:1px solid var(--border);
-  letter-spacing:.5px;text-transform:uppercase
-}
-td{padding:10px 18px;border-bottom:1px solid rgba(42,51,70,.5);vertical-align:middle}
+.student-card .wa-actions a.grup{background:#1a6b5e;color:#fff}
+.student-card .wa-actions a.grup:hover{background:#1f8a7a}
+.student-card .wa-actions a.angkatan{background:#7c5c1e;color:#fff}
+.student-card .wa-actions a.angkatan:hover{background:#9e7526}
+.class-section{margin-top:28px;max-width:700px;margin-left:auto;margin-right:auto}
+.class-section .class-title{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px;text-align:center}
+.table-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{padding:9px 14px;text-align:left;font-size:10px;color:var(--text3);font-weight:600;letter-spacing:.5px;text-transform:uppercase;border-bottom:1px solid var(--border);background:var(--bg2)}
+td{padding:8px 14px;border-bottom:1px solid rgba(42,51,70,.4);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(212,168,83,.04)}
 tr:nth-child(even) td{background:rgba(255,255,255,.015)}
-tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
-.no-col{color:var(--text3);width:32px;text-align:center;font-size:12px;font-weight:500}
-.nama{font-weight:600;color:var(--text);display:flex;align-items:center;gap:8px}
-.nama .avatar{
-  display:inline-flex;width:24px;height:24px;border-radius:50%;
-  align-items:center;justify-content:center;
-  font-size:10px;font-weight:700;color:#fff;flex-shrink:0;
-  box-shadow:0 2px 6px rgba(0,0,0,.2)
+.no{color:var(--text3);width:28px;text-align:center;font-size:12px}
+.nama-cell{font-weight:500}
+.nama-cell .avatar-sm{
+  display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;color:#fff;margin-right:8px;flex-shrink:0
 }
-.jk-cell{text-align:center;font-size:13px;width:50px}
-.jk-cell .l{color:var(--teal);font-weight:700}
-.jk-cell .p{color:var(--gold);font-weight:700}
-.asal{color:var(--text2);font-size:13px}
-.grup-header td{
-  padding:8px 18px;font-size:12px;font-weight:700;letter-spacing:.3px;
-  background:var(--bg2);color:var(--gold)
-}
-.empty{
-  text-align:center;padding:32px 18px;color:var(--text3);font-size:13px
-}
-.loading{text-align:center;padding:80px 20px}
-.spinner{
-  display:inline-block;width:30px;height:30px;
-  border:3px solid var(--border);border-top-color:var(--gold);
-  border-radius:50%;animation:spin .7s linear infinite
-}
+.jk{width:40px;text-align:center;font-size:12px}
+.jk.l{color:var(--teal)}.jk.p{color:var(--gold)}
+.asal{color:var(--text2);font-size:12px}
+.highlight td{background:rgba(212,168,83,.08)!important}
+.highlight td.nama-cell{color:var(--gold);font-weight:700}
+.loading{text-align:center;padding:60px 20px}
+.spinner{display:inline-block;width:28px;height:28px;border:3px solid var(--border);border-top-color:var(--gold);border-radius:50%;animation:spin .7s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{color:var(--text3);font-size:13px;margin-top:10px}
-.error{text-align:center;padding:60px 20px}
-.error-icon{font-size:36px;margin-bottom:6px}
-.error-text{color:#ef4444;font-weight:600;font-size:14px}
-.error-detail{color:var(--text3);font-size:13px;margin:6px 0 14px}
-.btn-retry{
-  background:var(--gold);color:#0c1222;border:none;
-  padding:8px 22px;border-radius:8px;cursor:pointer;
-  font-size:13px;font-family:inherit;font-weight:600;transition:background .2s
-}
-.btn-retry:hover{background:var(--gold2)}
-.footer{text-align:center;padding:18px;color:var(--text3);font-size:11px}
-.footer a{color:var(--gold);text-decoration:none}
-.footer a:hover{text-decoration:underline}
-@media(max-width:600px){
-  .header{padding:20px 16px 28px}
-  .header h1{font-size:15px}
-  .tab{font-size:12px;padding:8px 0}
-  td,th{padding:8px 12px;font-size:13px}
-  .kelas-hero{padding:14px 16px;flex-direction:column;align-items:flex-start}
-  .kelas-hero-right{flex-direction:row;gap:12px;align-self:flex-start;width:100%;flex-wrap:wrap}
-  .kelas-hero-right .avatar-walas{width:44px;height:44px;font-size:15px}
-  .search-wrap{padding:2px 2px 2px 12px}
-  .search-wrap input{font-size:13px;padding:8px 0}
-  .welcome-overlay .ayat{font-size:17px}
+@media(max-width:480px){
+  .student-card{padding:16px}
+  .student-card .avatar-lg{width:48px;height:48px;font-size:18px}
+  .student-card .info .nama-lg{font-size:16px}
+  .main-search .sapa{font-size:14px}
+  td,th{padding:6px 10px;font-size:12px}
 }
 </style>
 </head>
 <body>
 
-<!-- ══════ WELCOME SCREEN ══════ -->
-<div class="welcome-overlay" id="welcomeScreen">
+<div class="welcome" id="welcome">
   <div class="star" style="width:2px;height:2px;top:12%;left:15%;--d:3.2s;--delay:.5s"></div>
   <div class="star" style="width:1.5px;height:1.5px;top:8%;right:22%;--d:2.8s;--delay:1.2s"></div>
-  <div class="star" style="width:2.5px;height:2.5px;top:25%;left:72%;--d:4s;--delay:.2s"></div>
+  <div class="star" style="width:2px;height:2px;top:25%;left:72%;--d:4s;--delay:.2s"></div>
   <div class="star" style="width:1px;height:1px;top:60%;left:10%;--d:3.5s;--delay:2s"></div>
   <div class="star" style="width:2px;height:2px;bottom:30%;right:15%;--d:2.5s;--delay:1s"></div>
   <div class="star" style="width:1.5px;height:1.5px;bottom:20%;left:25%;--d:3.8s;--delay:.8s"></div>
-
-  <img class="logo-w" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
+  <img class="logo" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
   <div class="ayat">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</div>
   <div class="arti">"Sebaik-baik manusia adalah yang paling bermanfaat bagi manusia lainnya."</div>
   <div class="sumber">— HR. Ahmad, Ath-Thabrani, Al-Mu'jam Al-Ausath</div>
-  <button class="btn-masuk" onclick="masuk()">بِسْمِ اللَّهِ — MASUK</button>
+  <button class="btn" onclick="masuk()">بِسْمِ اللَّهِ — MASUK</button>
 </div>
 
-<!-- ══════ MAIN ══════ -->
-<div class="header">
+<div class="header" id="header">
   <img class="logo" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
   <h1>PEMBAGIAN KELAS SISWA BARU</h1>
   <div class="sub">SMP ABBS SURAKARTA — TAHUN AJARAN 2026/2027</div>
 </div>
 
-<div class="content" id="app">
-  <div class="loading">
-    <div class="spinner"></div>
-    <div class="loading-text">Memuat data...</div>
+<div class="main-search" id="mainSearch">
+  <div class="sapa">
+    Assalamu'alaikum wr wb 👋<br>
+    Selamat datang, calon siswa baru!<br>
+    <strong>Cari namamu</strong> untuk mengetahui kelas dan informasi lengkap.
+  </div>
+  <div class="sapa2">Ketik nama lengkap atau sebagian namamu</div>
+  <div class="search-box">
+    <span class="icon">🔍</span>
+    <input type="text" id="searchInput" placeholder="Cari namamu..." autocomplete="off">
+    <div class="suggestions" id="suggestions"></div>
   </div>
 </div>
 
-<div class="footer" id="footer"></div>
+<div class="result" id="result"></div>
 
 <script>
-// ── DATA SOURCE ──
 var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
-
-// ── WALI KELAS ──
 var WALAS = {
-  '7A': { nama:'Mr Hang', cp:'+62 895-2903-2377', panggilan:'Mr Hang', warna:'#0d7377', wa_grup:'https://chat.whatsapp.com/GILUNPKKbsj7zuc5mXV2uc?s=cl&p=a&ilr=1&amv=2' },
-  '7B': { nama:'Mr Joko', cp:'+62 858-4222-0006', panggilan:'Mr Joko', warna:'#1a6b8a', wa_grup:'https://chat.whatsapp.com/LdLclfvwc2c044gHVjSz76?s=sh&p=a&ilr=4&amv=0' },
-  '7C': { nama:'Mr Sharih', cp:'+62 857-2500-7383', panggilan:'Mr Sharih', warna:'#2a5a2a', wa_grup:'https://chat.whatsapp.com/CnrhoOmf4qaCLjkdzkeYI3?s=cl&p=a&ilr=0' },
-  '7D': { nama:'Ms Binti', cp:'+62 857-2732-0047', panggilan:'Ms Binti', warna:'#b45309', wa_grup:'https://chat.whatsapp.com/Dxs0jto6kYF7kRE8GyeJDI?s=cl&p=a&ilr=0&amv=2' },
-  '7E': { nama:'Ms Putri', cp:'+62 856-4664-2303', panggilan:'Ms Putri', warna:'#7c3aed', wa_grup:'https://chat.whatsapp.com/HNoc5OH6cJWBEKNK0uzKzn?mode=gi_t' }
+  '7A':{nama:'Mr Hang',cp:'+62 895-2903-2377',panggilan:'Mr Hang',warna:'#0d7377',wa_grup:'https://chat.whatsapp.com/GILUNPKKbsj7zuc5mXV2uc?s=cl&p=a&ilr=1&amv=2'},
+  '7B':{nama:'Mr Joko',cp:'+62 858-4222-0006',panggilan:'Mr Joko',warna:'#1a6b8a',wa_grup:'https://chat.whatsapp.com/LdLclfvwc2c044gHVjSz76?s=sh&p=a&ilr=4&amv=0'},
+  '7C':{nama:'Mr Sharih',cp:'+62 857-2500-7383',panggilan:'Mr Sharih',warna:'#2a5a2a',wa_grup:'https://chat.whatsapp.com/CnrhoOmf4qaCLjkdzkeYI3?s=cl&p=a&ilr=0'},
+  '7D':{nama:'Ms Binti',cp:'+62 857-2732-0047',panggilan:'Ms Binti',warna:'#b45309',wa_grup:'https://chat.whatsapp.com/Dxs0jto6kYF7kRE8GyeJDI?s=cl&p=a&ilr=0&amv=2'},
+  '7E':{nama:'Ms Putri',cp:'+62 856-4664-2303',panggilan:'Ms Putri',warna:'#7c3aed',wa_grup:'https://chat.whatsapp.com/HNoc5OH6cJWBEKNK0uzKzn?mode=gi_t'}
 };
-
-// ── LINK GRUP ANGKATAN (SEMUA KELAS) ──
 var WA_ANGKATAN = 'https://chat.whatsapp.com/DbypFi9BvAc43gl4aA8OFP?s=cl&p=a&ilr=0';
+var KELAS_INFO = {'7A':'Putra 1','7B':'Putra 2','7C':'Putra 3','7D':'Putri 1','7E':'Putri 2'};
+var KELAS_URUT = ['7A','7B','7C','7D','7E'];
+var data = null, loading = false, loadErr = null, bgStarted = false;
+var terpilih = null;
 
-// ── HELPERS ──
-function parseDate(str) {
-  if (!str) return 99999999;
-  var p = str.split('/');
-  return p.length === 3 ? +p[2]*10000 + +p[1]*100 + +p[0] : 99999999;
-}
-function sortByDate(a,b) { return parseDate(a.tgl_daftar) - parseDate(b.tgl_daftar); }
+function p(s){return s.split('/').reduce(function(a,c,i){return a+(+c)*(i==0?1:i==1?100:10000)},0)}
+function ds(a,b){return p(a.tgl_daftar)-p(b.tgl_daftar)}
 
-// ── CLASS DIVISION ──
-function calculateClasses(siswa) {
-  var l = siswa.filter(function(s){ return s.program.endsWith('-L'); }).sort(sortByDate);
-  var pr = siswa.filter(function(s){ return s.program.endsWith('-P'); }).sort(sortByDate);
-  function get(p,a){ return a.filter(function(s){ return s.program === p; }); }
+function kelas(siswa){
+  var l=siswa.filter(function(s){return s.program.endsWith('-L')}).sort(ds);
+  var pr=siswa.filter(function(s){return s.program.endsWith('-P')}).sort(ds);
+  function g(p,a){return a.filter(function(s){return s.program===p})}
   return {
-    '7A': [].concat(get('ICT-L',l).slice(0,26), get('VCP-L',l).slice(0,3)).sort(sortByDate),
-    '7B': [].concat(get('ICT-L',l).slice(26,52), get('VCP-L',l).slice(3,6)).sort(sortByDate),
-    '7C': [].concat(get('ICT-L',l).slice(52), get('TCP-L',l), get('VCP-L',l).slice(6)).sort(sortByDate),
-    '7D': [].concat(get('ICT-P',pr)).sort(sortByDate),
-    '7E': [].concat(get('TCP-P',pr), get('VCP-P',pr)).sort(sortByDate)
+    '7A':[].concat(g('ICT-L',l).slice(0,26),g('VCP-L',l).slice(0,3)),
+    '7B':[].concat(g('ICT-L',l).slice(26,52),g('VCP-L',l).slice(3,6)),
+    '7C':[].concat(g('ICT-L',l).slice(52),g('TCP-L',l),g('VCP-L',l).slice(6)),
+    '7D':[].concat(g('ICT-P',pr)),
+    '7E':[].concat(g('TCP-P',pr),g('VCP-P',pr))
   };
 }
 
-var KELAS_INFO = {'7A':'Putra 1','7B':'Putra 2','7C':'Putra 3','7D':'Putri 1','7E':'Putri 2'};
-var KELAS_URUT = ['7A','7B','7C','7D','7E'];
-
-// ── STATE ──
-var data = null;
-var loading = false;
-var loadErr = null;
-var tabAktif = '7A';
-var bgStarted = false;
-
-// ── WELCOME ──
-function masuk() {
-  document.getElementById('welcomeScreen').classList.add('hidden');
-  if (data) { render(); }
-  else if (!loading) { init(); }
+function masuk(){
+  document.getElementById('welcome').classList.add('hidden');
+  if(data){showSearch()}else if(!loading){init()}
 }
 
-// ── FETCH ──
-async function init() {
-  loading = true; loadErr = null; render();
-  try {
-    var r = await fetch(DATA_URL);
-    if (!r.ok) throw new Error('Gagal memuat (HTTP ' + r.status + ')');
-    data = await r.json();
-    loading = false;
-    render();
-  } catch(e) {
-    loading = false;
-    loadErr = e.message;
-    render();
+async function init(){
+  loading=true;showLoading();
+  try{
+    var r=await fetch(DATA_URL);
+    if(!r.ok)throw Error('Gagal memuat');
+    data=await r.json();loading=false;showSearch();
+  }catch(e){loading=false;showError(e.message)}
+}
+
+function showLoading(){
+  document.getElementById('result').innerHTML='<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat data...</div></div>';
+}
+function showError(m){
+  document.getElementById('result').classList.add('show');
+document.getElementById('result').innerHTML='<div class="error">⚠️ '+m+'<br><br><button onclick="init()" style="padding:8px 22px;border-radius:8px;background:var(--gold);border:none;color:#0c1222;font-weight:600;cursor:pointer;font-family:inherit">Coba Lagi</button></div>';
+}
+
+function showSearch(){
+  document.getElementById('result').classList.remove('show');
+  document.getElementById('result').innerHTML='';
+}
+
+function cariSiswa(q){
+  if(!data||!data.siswa){return}
+  var el=document.getElementById('suggestions');
+  q=q.trim().toLowerCase();
+  if(!q){el.classList.remove('show');return}
+  var hasil=[];
+  for(var i=0;i<data.siswa.length;i++){
+    if(data.siswa[i].nama.toLowerCase().indexOf(q)!==-1)hasil.push(data.siswa[i]);
+    if(hasil.length>=8)break;
   }
-}
-
-// ── TAB ──
-function pilih(k) {
-  tabAktif = k;
-  var inp = document.getElementById('searchInput');
-  if (inp) inp.value = '';
-  var btn = document.getElementById('clearBtn');
-  if (btn) btn.classList.remove('show');
-  var tabBar = document.getElementById('tabBar');
-  if (tabBar) tabBar.classList.remove('mencari');
-  renderTable();
-  highlightTab();
-  var card = document.getElementById('card-container');
-  if (card) card.scrollIntoView({ behavior:'smooth', block:'nearest' });
-}
-function highlightTab() {
-  var tabs = document.querySelectorAll('.tab');
-  for (var i=0;i<tabs.length;i++) tabs[i].classList.toggle('active',tabs[i].dataset.kelas===tabAktif);
-}
-
-// ── RENDER ──
-function render() {
-  var app = document.getElementById('app'), ft = document.getElementById('footer');
-  if (loading) {
-    app.innerHTML = '<div class="loading"><div class="spinner"></div><div class="loading-text">Memuat data...</div></div>';
-    ft.innerHTML = ''; return;
+  if(hasil.length===0){el.classList.remove('show');return}
+  var h='';
+  for(var i=0;i<hasil.length;i++){
+    var s=hasil[i];
+    var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
+    var warna=i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
+    h+='<div class="item" onclick="pilihSiswa('+s.id+')">'+
+      '<span class="avatar" style="background:'+warna+'">'+inial+'</span>'+
+      '<div class="info"><div class="nama">'+s.nama+'</div><div class="detail">'+s.asal_sekolah+'</div></div>'+
+      '</div>';
   }
-  if (loadErr) {
-    app.innerHTML = '<div class="error"><div class="error-icon">⚠️</div><div class="error-text">Gagal memuat data</div><div class="error-detail">'+loadErr+'</div><button class="btn-retry" onclick="init()">🔄 Coba Lagi</button></div>';
-    ft.innerHTML = ''; return;
-  }
-  if (!data || !data.siswa || !data.siswa.length) {
-    app.innerHTML = '<div class="error"><div class="error-text">Data tidak tersedia</div></div>'; return;
-  }
-
-  var html = '<div class="tab-bar" id="tabBar">';
-  for (var i=0;i<KELAS_URUT.length;i++) {
-    var k = KELAS_URUT[i];
-    html += '<button class="tab'+(tabAktif===k?' active':'')+'" data-kelas="'+k+'" onclick="pilih(\''+k+'\')">'+k+'</button>';
-  }
-  html += '</div>';
-
-  html += '<div class="search-wrap">'+
-    '<span class="icon">🔍</span>'+
-    '<input type="text" id="searchInput" placeholder="Cari nama siswa di semua kelas..." oninput="cariSiswa(this)" autocomplete="off">'+
-    '<button class="clear" id="clearBtn" onclick="resetCari()">✕ Hapus</button>'+
-    '</div>';
-
-  html += '<div id="card-container"></div>';
-  app.innerHTML = html;
-  renderTable();
-  ft.innerHTML = 'Data per '+(data.per_tanggal||'-')+' • <a href="https://pps2627.vercel.app" target="_blank">Admin</a>';
+  el.innerHTML=h;
+  el.classList.add('show');
 }
 
-// ── SEARCH ──
-function cariSiswa(input) {
-  var q = input.value.trim();
-  var btn = document.getElementById('clearBtn');
-  if (btn) btn.classList.toggle('show', q.length>0);
-  var tabBar = document.getElementById('tabBar');
-  if (tabBar) tabBar.classList.toggle('mencari', q.length>0);
-  renderTable(q);
-}
-function resetCari() {
-  var inp = document.getElementById('searchInput');
-  if (inp) inp.value = '';
-  var btn = document.getElementById('clearBtn');
-  if (btn) btn.classList.remove('show');
-  var tabBar = document.getElementById('tabBar');
-  if (tabBar) tabBar.classList.remove('mencari');
-  renderTable('');
+function pilihSiswa(id){
+  document.getElementById('suggestions').classList.remove('show');
+  document.getElementById('searchInput').blur();
+  var s;
+  for(var i=0;i<data.siswa.length;i++){if(data.siswa[i].id===id){s=data.siswa[i];break}}
+  if(!s)return;
+  terpilih=s;showResult(s);
 }
 
-// ── RENDER TABLE ──
-function renderTable(query) {
-  if (!data || !data.siswa) return;
-  if (query===undefined) query = '';
-  var q = query.toLowerCase().trim();
-  var kls = calculateClasses(data.siswa);
-
-  // ── SEARCH MODE ──
-  if (q) {
-    var semua = [];
-    for (var i=0;i<KELAS_URUT.length;i++) {
-      var k = KELAS_URUT[i];
-      var list = kls[k] || [];
-      for (var j=0;j<list.length;j++) {
-        if (list[j].nama.toLowerCase().indexOf(q)!==-1) semua.push({siswa:list[j], kelas:k});
-      }
+function showResult(s){
+  var kls=kelas(data.siswa);
+  var kelasSiswa='';
+  for(var k in kls){
+    for(var i=0;i<kls[k].length;i++){
+      if(kls[k][i].id===s.id){kelasSiswa=k;break}
     }
-    var byK = {};
-    for (var i=0;i<semua.length;i++) {
-      var h = semua[i];
-      if (!byK[h.kelas]) byK[h.kelas] = [];
-      byK[h.kelas].push(h.siswa);
-    }
-    var totalHasil = semua.length;
-    var totalSiswa = data.siswa.length;
-    var allRows = '';
-    var urut = KELAS_URUT.filter(function(k){ return byK[k]; });
-    for (var i=0;i<urut.length;i++) {
-      var k = urut[i];
-      var list = byK[k];
-      allRows += '<tr class="grup-header"><td colspan="4">▸ '+k+' — '+KELAS_INFO[k]+' <span style="color:var(--text3);font-weight:400">('+list.length+')</span></td></tr>';
-      for (var j=0;j<list.length;j++) {
-        allRows += rowSiswa(list[j], j);
-      }
-    }
-    var card = document.getElementById('card-container');
-    if (!card) return;
-    card.innerHTML = '<div class="kelas-card">'+
-      '<div class="kelas-hero"><div class="kelas-hero-left">'+
-      '<div class="kode" style="font-size:16px">🔍 Hasil Pencarian</div>'+
-      '<div class="counts"><span class="count-badge total">'+totalHasil+'/'+totalSiswa+' siswa</span></div>'+
-      '</div></div>'+
-      '<div class="card-body"><table><thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
-      (allRows || '<tr><td colspan="4"><div class="empty">Tidak ada siswa dengan nama "'+query+'"</div></td></tr>')+
-      '</tbody></table></div></div>';
-    return;
+    if(kelasSiswa)break;
   }
+  if(!kelasSiswa)return;
 
-  // ── NORMAL MODE ──
-  var siswa = kls[tabAktif] || [];
-  var w = WALAS[tabAktif] || {};
-  var info = KELAS_INFO[tabAktif] || '';
-  var lCount = siswa.filter(function(s){ return s.program.endsWith('-L'); }).length;
-  var pCount = siswa.filter(function(s){ return s.program.endsWith('-P'); }).length;
+  var w=WALAS[kelasSiswa]||{};
+  var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
+  var info=KELAS_INFO[kelasSiswa]||'';
 
-  var rows = '';
-  if (siswa.length===0) {
-    rows = '<tr><td colspan="4"><div class="empty">Belum ada siswa</div></td></tr>';
-  } else {
-    for (var i=0;i<siswa.length;i++) {
-      rows += rowSiswa(siswa[i], i);
-    }
-  }
-
-  var card = document.getElementById('card-container');
-  if (!card) return;
-
-  // Avatar walas
-  var namaArr = (w.panggilan||'').split(' ');
-  var inisialWalas = '';
-  for (var a=0;a<namaArr.length;a++) {
-    if (namaArr[a] && namaArr[a].length>0) inisialWalas += namaArr[a][0];
-  }
-  inisialWalas = inisialWalas.toUpperCase().substring(0,2);
-
-  card.innerHTML =
-    '<div class="kelas-card">'+
-      '<div class="kelas-hero">'+
-        '<div class="kelas-hero-left">'+
-          '<div class="kode">'+tabAktif+' — '+info+'</div>'+
-          '<div class="walas-nama">Wali Kelas: <strong>'+(w.nama||'-')+'</strong></div>'+
-          '<div class="walas-cp">📞 '+(w.cp||'')+'</div>'+
-          '<div class="counts">'+
-            (lCount>0?'<span class="count-badge laki">♂ '+lCount+' Laki-laki</span>':'')+
-            (pCount>0?'<span class="count-badge perempuan">♀ '+pCount+' Perempuan</span>':'')+
-            '<span class="count-badge total">Total: '+siswa.length+' Siswa</span>'+
-            (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="count-badge wa-group">💬 Grup Kelas</a>':'')+
-            (WA_ANGKATAN!=='#'?'<a href="'+WA_ANGKATAN+'" target="_blank" class="count-badge wa-angkatan">👥 Grup Angkatan</a>':'')+
-          '</div>'+
-        '</div>'+
-        '<div class="kelas-hero-right">'+
-          '<div class="avatar-walas" style="background:'+(w.warna||'#64748b')+'">'+inisialWalas+'</div>'+
-          '<span class="panggilan">'+w.panggilan+'</span>'+
-        '</div>'+
+  var html='<div class="student-card">'+
+    '<div class="row">'+
+      '<span class="avatar-lg" style="background:'+(w.warna||'#64748b')+'">'+inial+'</span>'+
+      '<div class="info">'+
+        '<div class="nama-lg">'+s.nama+'</div>'+
+        '<div class="kelas-lg">'+kelasSiswa+' — '+info+'</div>'+
       '</div>'+
-      '<div class="card-body"><table>'+
-        '<thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
-        rows+
-        '</tbody></table></div>'+
-    '</div>';
+    '</div>'+
+    '<hr class="divider">'+
+    '<div class="walas-info">'+
+      'Wali Kelas: <strong>'+(w.nama||'-')+'</strong><br>'+
+      '<span class="cp">📞 '+(w.cp||'')+'</span>'+
+    '</div>'+
+    '<div class="wa-actions">'+
+      (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="grup">💬 Grup Kelas</a>':'')+
+      '<a href="'+WA_ANGKATAN+'" target="_blank" class="angkatan">👥 Grup Angkatan</a>'+
+    '</div>'+
+  '</div>';
+
+  // Class table
+  var list=kls[kelasSiswa]||[];
+  var lCount=list.filter(function(x){return x.program.endsWith('-L')}).length;
+  var pCount=list.filter(function(x){return x.program.endsWith('-P')}).length;
+  var rows='';
+  for(var i=0;i<list.length;i++){
+    var x=list[i];
+    var isMe=x.id===s.id;
+    var arr2=x.nama.split(' '),in2=(arr2[0]?arr2[0][0]:'')+(arr2[1]?arr2[1][0]:'');
+    var w2=i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
+    var jk=x.program.endsWith('-L')?'L':'P';
+    rows+='<tr'+(isMe?' class="highlight"':'')+'>'+
+      '<td class="no">'+(i+1)+'</td>'+
+      '<td class="nama-cell"><span class="avatar-sm" style="background:'+w2+'">'+in2+'</span>'+x.nama+'</td>'+
+      '<td class="jk '+jk.toLowerCase()+'">'+(jk==='L'?'♂':'♀')+'</td>'+
+      '<td class="asal">'+x.asal_sekolah+'</td></tr>';
+  }
+
+  html+='<div class="class-section">'+
+    '<div class="class-title">👥 '+kelasSiswa+' — '+info+' ('+list.length+' siswa · ♂'+lCount+' ♀'+pCount+')</div>'+
+    '<div class="table-wrap"><table>'+
+      '<thead><tr><th style="width:28px">No</th><th>Nama Siswa</th><th style="width:40px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
+      rows+'</tbody></table></div></div>';
+
+  document.getElementById('result').innerHTML=html;
+  document.getElementById('result').classList.add('show');
+  document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function rowSiswa(s, i) {
-  var namaArr = s.nama.split(' ');
-  var inisial = (namaArr[0]?namaArr[0][0]:'')+(namaArr[1]?namaArr[1][0]:'');
-  var warna = i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
-  var jkLabel = s.program.endsWith('-L')?'♂ L':'♀ P';
-  var jkClass = s.program.endsWith('-L')?'l':'p';
-  return '<tr><td class="no-col">'+(i+1)+'</td>'+
-    '<td class="nama"><span class="avatar" style="background:'+warna+'">'+inisial+'</span>'+s.nama+'</td>'+
-    '<td class="jk-cell"><span class="'+jkClass+'">'+jkLabel+'</span></td>'+
-    '<td class="asal">'+s.asal_sekolah+'</td></tr>';
-}
+// Event listeners
+document.addEventListener('DOMContentLoaded',function(){
+  var inp=document.getElementById('searchInput');
+  if(inp) inp.addEventListener('input',function(){cariSiswa(this.value)});
+});
 
-// ── BACKGROUND FETCH ──
+// Background fetch
 setTimeout(function(){
-  if (!data && !loading && !bgStarted) {
-    bgStarted = true;
-    loading = true; loadErr = null;
+  if(!data&&!loading&&!bgStarted){
+    bgStarted=true;loading=true;
     fetch(DATA_URL).then(function(r){
-      if(!r.ok)throw Error('Gagal memuat (HTTP '+r.status+')');
+      if(!r.ok)throw Error('gagal');
       return r.json();
     }).then(function(d){
-      data = d; loading = false;
-      if (document.getElementById('welcomeScreen').classList.contains('hidden')) render();
-    }).catch(function(e){
-      loading = false; loadErr = e.message;
-      if (document.getElementById('welcomeScreen').classList.contains('hidden')) render();
-    });
+      data=d;loading=false;
+      if(document.getElementById('welcome').classList.contains('hidden'))showSearch();
+    }).catch(function(e){loading=false;loadErr=e.message});
   }
-}, 100);
+},100);
 </script>
 </body>
 </html>
