@@ -72,30 +72,45 @@ body{
 .result.show{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .student-card{
-  background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:28px;
-  max-width:560px;margin:0 auto;box-shadow:0 4px 24px rgba(0,0,0,.25)
+  background:var(--bg3);border:1px solid var(--border);border-radius:16px;padding:0;
+  max-width:560px;margin:0 auto;box-shadow:0 4px 24px rgba(0,0,0,.25);overflow:hidden
+}
+.student-card .card-top{
+  background:linear-gradient(135deg,rgba(212,168,83,.06),rgba(45,212,191,.04));
+  padding:24px 24px 20px;border-bottom:1px solid var(--border)
 }
 .student-card .row{display:flex;gap:16px;align-items:center}
 .student-card .avatar-lg{
-  width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:22px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3)
+  width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:24px;font-weight:800;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.3)
 }
 .student-card .info{flex:1}
-.student-card .info .nama-lg{font-size:18px;font-weight:700;color:var(--text)}
-.student-card .info .kelas-lg{font-size:14px;color:var(--gold);font-weight:600;margin-top:2px}
+.student-card .info .nama-lg{font-size:20px;font-weight:700;color:var(--text);line-height:1.3}
+.student-card .info .kelas-lg{font-size:15px;color:var(--gold);font-weight:600;margin-top:4px}
+.student-card .card-body{padding:20px 24px}
+.student-card .walas-info{font-size:14px;color:var(--text2);line-height:1.7}
+.student-card .walas-info strong{color:var(--teal);font-weight:600}
+.student-card .walas-info .cp{color:var(--text3);font-size:13px;display:block;margin-top:2px}
 .student-card .divider{border:none;border-top:1px solid var(--border);margin:16px 0}
-.student-card .walas-info{font-size:13px;color:var(--text2);line-height:1.6}
-.student-card .walas-info strong{color:var(--teal)}
-.student-card .walas-info .cp{color:var(--text3);font-size:12px}
-.student-card .wa-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.student-card .wa-label{font-size:12px;font-weight:600;color:var(--text3);margin-bottom:10px;letter-spacing:.3px}
+.student-card .wa-actions{display:flex;gap:10px;flex-wrap:wrap}
 .student-card .wa-actions a{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;transition:all .2s;font-family:inherit
+  display:inline-flex;align-items:center;gap:8px;flex:1;min-width:180px;
+  padding:12px 18px;border-radius:10px;font-size:13px;font-weight:700;text-decoration:none;
+  transition:all .2s;font-family:inherit;justify-content:center
 }
-.student-card .wa-actions a.grup{background:#1a6b5e;color:#fff}
-.student-card .wa-actions a.grup:hover{background:#1f8a7a}
-.student-card .wa-actions a.angkatan{background:#7c5c1e;color:#fff}
-.student-card .wa-actions a.angkatan:hover{background:#9e7526}
+.student-card .wa-actions a.grup{background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.2)}
+.student-card .wa-actions a.grup:hover{background:rgba(45,212,191,.18);border-color:rgba(45,212,191,.35)}
+.student-card .wa-actions a.angkatan{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
+.student-card .wa-actions a.angkatan:hover{background:rgba(212,168,83,.18);border-color:rgba(212,168,83,.35)}
+.wa-info-box{
+  margin-top:12px;padding:14px 16px;border-radius:10px;
+  background:rgba(255,255,255,.03);border:1px solid var(--border);
+  font-size:12px;color:var(--text3);line-height:1.7
+}
+.wa-info-box strong{color:var(--text2)}
+.wa-info-box .wajib{color:var(--teal);font-weight:600}
+.wa-info-box .dilarang{color:#ef4444;font-weight:600}
 .class-section{margin-top:28px;max-width:700px;margin-left:auto;margin-right:auto}
 .class-section .class-title{font-size:14px;font-weight:700;color:var(--gold);margin-bottom:12px;text-align:center}
 .table-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -131,9 +146,12 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .loading-text{color:var(--text3);font-size:13px;margin-top:10px}
 @media(max-width:480px){
-  .student-card{padding:16px}
-  .student-card .avatar-lg{width:48px;height:48px;font-size:18px}
-  .student-card .info .nama-lg{font-size:16px}
+  .student-card .card-top{padding:16px}
+  .student-card .card-body{padding:16px}
+  .student-card .avatar-lg{width:48px;height:48px;font-size:20px}
+  .student-card .info .nama-lg{font-size:17px}
+  .student-card .wa-actions a{min-width:auto;padding:10px 14px;font-size:12px}
+  .wa-info-box{font-size:11px;padding:12px}
   .main-search .sapa{font-size:14px}
   td,th{padding:6px 10px;font-size:12px}
 }
@@ -294,6 +312,7 @@ function showResult(s){
 
   var html='<div class="footer-nav" style="margin-bottom:20px;margin-top:0"><button class="btn-secondary" onclick="resetHasil()">← Cari Nama Lain</button></div>'+
     '<div class="student-card">'+
+    '<div class="card-top">'+
     '<div class="row">'+
       '<span class="avatar-lg" style="background:'+(w.warna||'#64748b')+'">'+inial+'</span>'+
       '<div class="info">'+
@@ -301,16 +320,25 @@ function showResult(s){
         '<div class="kelas-lg">'+kelasSiswa+' — '+info+'</div>'+
       '</div>'+
     '</div>'+
-    '<hr class="divider">'+
+    '</div>'+
+    '<div class="card-body">'+
     '<div class="walas-info">'+
-      'Wali Kelas: <strong>'+(w.nama||'-')+'</strong><br>'+
+      'Wali Kelas: <strong>'+(w.nama||'-')+'</strong>'+
       '<span class="cp">📞 '+(w.cp||'')+'</span>'+
     '</div>'+
+    '<hr class="divider">'+
+    '<div class="wa-label">💬 GRUP WHATSAPP</div>'+
     '<div class="wa-actions">'+
-      (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="grup">💬 Grup Kelas</a>':'')+
-      '<a href="'+WA_ANGKATAN+'" target="_blank" class="angkatan">👥 Grup Angkatan</a>'+
+      (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="grup">💬 Grup Kelas '+kelasSiswa+'</a>':'')+
+      '<a href="'+WA_ANGKATAN+'" target="_blank" class="angkatan">👥 Grup Angkatan Level 7</a>'+
     '</div>'+
-  '</div>';
+    '<div class="wa-info-box">'+
+      '📌 <strong>Grup Kelas</strong> dan <strong>Grup Angkatan</strong> adalah grup <span class="wajib">WAJIB</span> bagi <strong>orang tua/wali</strong>.<br>'+
+      'Semua orang tua/wali <strong>wajib</strong> bergabung di kedua grup.<br>'+
+      'Yang bergabung boleh <strong>Ayah</strong>, <strong>Ibu</strong>, atau <strong>keduanya</strong>.<br>'+
+      '<span class="dilarang">🚫 Siswa dilarang join grup ini.</span> Grup khusus siswa akan diinformasikan oleh wali kelas.'+
+    '</div>'+
+    '</div>'+
 
   // Class table
   var list=kls[kelasSiswa]||[];
