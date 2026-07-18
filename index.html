@@ -94,10 +94,13 @@ body{
 .student-card .wa-actions a.grup:hover{background:rgba(45,212,191,.18);border-color:rgba(45,212,191,.35)}
 .student-card .wa-actions a.angkatan{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
 .student-card .wa-actions a.angkatan:hover{background:rgba(212,168,83,.18);border-color:rgba(212,168,83,.35)}
-.wa-info-box{margin-top:12px;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;color:var(--text3);line-height:1.7}
+.wa-info-box{margin-top:12px;padding:14px 16px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;color:var(--text3);line-height:1.8}
 .wa-info-box strong{color:var(--text2)}
 .wa-info-box .wajib{color:var(--teal);font-weight:600}
 .wa-info-box .dilarang{color:#ef4444;font-weight:600}
+.wa-info-box ul{list-style:none;padding:0;margin:0}
+.wa-info-box ul li{padding:2px 0 2px 20px;position:relative}
+.wa-info-box ul li::before{content:'';position:absolute;left:4px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--text3)}
 
 /* Class Table */
 .class-section{margin-top:28px;max-width:700px;margin-left:auto;margin-right:auto}
@@ -240,7 +243,8 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015)}
           '</div>'+
         '</div></div>'+
         '<div class="card-body">'+
-          '<div class="walas-info">Wali Kelas: <strong>'+(w.nama||'-')+'</strong><span class="cp">📞 '+(w.cp||'')+'</span></div>'+
+          '<div class="walas-info">Wali Kelas: <strong>'+(w.nama||'-')+'</strong></div>'+
+          (w.cp?'<a href="https://wa.me/'+w.cp.replace(/[^0-9]/g,'')+'" target="_blank" class="btn-secondary" style="margin-top:8px;display:inline-flex;align-items:center;gap:6px;padding:8px 16px;font-size:12px">📞 Chat Wali Kelas</a>':'')+
           '<hr class="divider">'+
           '<div class="wa-label">💬 GRUP WHATSAPP</div>'+
           '<div class="wa-actions">'+
@@ -248,10 +252,12 @@ tr:nth-child(even) td{background:rgba(255,255,255,.015)}
             '<a href="'+WA_ANGKATAN+'" target="_blank" class="angkatan">👥 Grup Angkatan Level 7</a>'+
           '</div>'+
           '<div class="wa-info-box">'+
-            '📌 <strong>Grup Kelas</strong> dan <strong>Grup Angkatan</strong> adalah grup <span class="wajib">WAJIB</span> bagi <strong>orang tua/wali</strong>.<br>'+
-            'Semua orang tua/wali <strong>wajib</strong> bergabung di kedua grup.<br>'+
-            'Yang bergabung boleh <strong>Ayah</strong>, <strong>Ibu</strong>, atau <strong>keduanya</strong>.<br>'+
-            '<span class="dilarang">🚫 Siswa dilarang join grup ini.</span> Grup khusus siswa akan diinformasikan oleh wali kelas.'+
+            '<ul>'+
+              '<li><strong>Grup Kelas</strong> dan <strong>Grup Angkatan</strong> adalah grup <span class="wajib">WAJIB</span> bagi orang tua/wali</li>'+
+              '<li>Semua orang tua/wali wajib bergabung di <strong>kedua grup</strong></li>'+
+              '<li>Yang bergabung boleh <strong>Ayah</strong>, <strong>Ibu</strong>, atau <strong>keduanya</strong></li>'+
+              '<li><span class="dilarang">Siswa dilarang join grup ini</span> — grup khusus siswa akan diinformasikan wali kelas</li>'+
+            '</ul>'+
           '</div>'+
         '</div>'+
       '</div>'+
