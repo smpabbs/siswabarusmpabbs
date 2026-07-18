@@ -292,7 +292,8 @@ function showResult(s){
   var arr=s.nama.split(' '),inial=(arr[0]?arr[0][0]:'')+(arr[1]?arr[1][0]:'');
   var info=KELAS_INFO[kelasSiswa]||'';
 
-  var html='<div class="student-card">'+
+  var html='<div class="footer-nav" style="margin-bottom:20px;margin-top:0"><button class="btn-secondary" onclick="resetHasil()">← Cari Nama Lain</button></div>'+
+    '<div class="student-card">'+
     '<div class="row">'+
       '<span class="avatar-lg" style="background:'+(w.warna||'#64748b')+'">'+inial+'</span>'+
       '<div class="info">'+
@@ -334,8 +335,6 @@ function showResult(s){
     '<div class="table-wrap"><table>'+
       '<thead><tr><th style="width:28px">No</th><th>Nama Siswa</th><th style="width:40px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
       rows+'</tbody></table></div></div>';
-
-  html+='<div class="footer-nav"><button class="btn-secondary" onclick="resetHasil()">← Cari Nama Lain</button></div>';
 
   document.getElementById('result').innerHTML=html;
   document.getElementById('result').classList.add('show');
