@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pembagian Kelas — Awalussanah SMP ABBS 2026/2027</title>
+<title>Pembagian Kelas Siswa Baru SMP ABBS 2026/2027</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#0c1222;--bg2:#111827;--bg3:#1a2235;--bg4:#1e293b;--border:#2a3346;--text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;--gold:#d4a853;--gold2:#c4953a;--teal:#2dd4bf;--gold-glow:rgba(212,168,83,.12);--shadow:0 4px 24px rgba(0,0,0,.3)}
@@ -131,11 +131,14 @@ body{
   font-size:20px;font-weight:800;color:var(--gold);margin-bottom:2px
 }
 .kelas-hero-left .walas-nama{
-  font-size:13px;color:var(--text2);line-height:1.4
+  font-size:13px;color:var(--text2);line-height:1.5
 }
 .kelas-hero-left .walas-nama strong{color:var(--teal)}
+.kelas-hero-left .walas-cp{
+  font-size:12px;color:var(--text3);margin-top:2px
+}
 .kelas-hero-left .counts{
-  display:flex;gap:8px;flex-wrap:wrap;margin-top:10px
+  display:flex;gap:8px;flex-wrap:wrap;margin-top:8px
 }
 .count-badge{
   padding:3px 10px;border-radius:12px;font-size:11px;font-weight:600
@@ -143,24 +146,34 @@ body{
 .count-badge.laki{background:rgba(45,212,191,.1);color:var(--teal);border:1px solid rgba(45,212,191,.2)}
 .count-badge.perempuan{background:rgba(212,168,83,.1);color:var(--gold);border:1px solid rgba(212,168,83,.2)}
 .count-badge.total{background:rgba(255,255,255,.05);color:var(--text2);border:1px solid var(--border)}
+.count-badge.wa-group{background:rgba(45,212,191,.08);color:var(--teal);border:1px solid rgba(45,212,191,.15);cursor:pointer;transition:all .2s}
+.count-badge.wa-group:hover{background:rgba(45,212,191,.15);border-color:rgba(45,212,191,.3)}
+.count-badge.wa-angkatan{background:rgba(212,168,83,.08);color:var(--gold);border:1px solid rgba(212,168,83,.15);cursor:pointer;transition:all .2s}
+.count-badge.wa-angkatan:hover{background:rgba(212,168,83,.15);border-color:rgba(212,168,83,.3)}
 
-.kelas-hero-right{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:4px}
-.kelas-hero-right .foto-walas{
-  width:52px;height:52px;border-radius:50%;object-fit:cover;
-  border:2px solid rgba(212,168,83,.25)
+.kelas-hero-right{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.kelas-hero-right .avatar-walas{
+  width:52px;height:52px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:800;color:#fff;flex-shrink:0;
+  box-shadow:0 2px 12px rgba(0,0,0,.3)
 }
 .kelas-hero-right .panggilan{
   font-size:10px;font-weight:700;color:var(--gold);text-align:center;letter-spacing:.3px
 }
-.kelas-hero-right .qr-wrap{
-  display:flex;flex-direction:column;align-items:center;gap:2px;margin-top:2px
+.kelas-hero-right .wa-links{
+  display:flex;gap:6px;margin-top:2px
 }
-.kelas-hero-right .qr-wrap img{
-  width:48px;height:48px;border-radius:6px;border:1px solid var(--border);background:#fff
+.kelas-hero-right .wa-links a{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 10px;border-radius:8px;
+  font-size:10px;font-weight:700;color:#fff;text-decoration:none;
+  transition:all .2s
 }
-.kelas-hero-right .qr-wrap .qr-label{
-  font-size:9px;color:var(--text3);letter-spacing:.2px
-}
+.kelas-hero-right .wa-links a.grup{background:#1a6b5e}
+.kelas-hero-right .wa-links a.grup:hover{background:#1f8a7a}
+.kelas-hero-right .wa-links a.angkatan{background:#7c5c1e}
+.kelas-hero-right .wa-links a.angkatan:hover{background:#9e7526}
 
 /* ── TABLE ── */
 .card-body{padding:0 0 2px}
@@ -188,15 +201,6 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
 .jk-cell .l{color:var(--teal);font-weight:700}
 .jk-cell .p{color:var(--gold);font-weight:700}
 .asal{color:var(--text2);font-size:13px}
-.wa-cell{font-size:12px;white-space:nowrap}
-.wa-link{
-  color:var(--teal);text-decoration:none;font-weight:600;
-  padding:2px 8px;border-radius:6px;
-  background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.15);
-  transition:all .2s;display:inline-block;font-size:11px
-}
-.wa-link:hover{background:rgba(45,212,191,.15);border-color:rgba(45,212,191,.3)}
-.wa-sep{color:var(--text3);font-size:10px;margin:0 2px}
 .grup-header td{
   padding:8px 18px;font-size:12px;font-weight:700;letter-spacing:.3px;
   background:var(--bg2);color:var(--gold)
@@ -231,8 +235,8 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
   .tab{font-size:12px;padding:8px 0}
   td,th{padding:8px 12px;font-size:13px}
   .kelas-hero{padding:14px 16px;flex-direction:column;align-items:flex-start}
-  .kelas-hero-right{flex-direction:row;gap:12px;align-self:flex-start;width:100%}
-  .kelas-hero-right .qr-wrap img{width:40px;height:40px}
+  .kelas-hero-right{flex-direction:row;gap:12px;align-self:flex-start;width:100%;flex-wrap:wrap}
+  .kelas-hero-right .avatar-walas{width:44px;height:44px;font-size:15px}
   .search-wrap{padding:2px 2px 2px 12px}
   .search-wrap input{font-size:13px;padding:8px 0}
   .welcome-overlay .ayat{font-size:17px}
@@ -249,8 +253,6 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
   <div class="star" style="width:1px;height:1px;top:60%;left:10%;--d:3.5s;--delay:2s"></div>
   <div class="star" style="width:2px;height:2px;bottom:30%;right:15%;--d:2.5s;--delay:1s"></div>
   <div class="star" style="width:1.5px;height:1.5px;bottom:20%;left:25%;--d:3.8s;--delay:.8s"></div>
-  <div class="star" style="width:2px;height:2px;top:40%;right:8%;--d:3s;--delay:1.5s"></div>
-  <div class="star" style="width:1px;height:1px;top:70%;right:35%;--d:2.2s;--delay:.3s"></div>
 
   <img class="logo-w" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
   <div class="ayat">خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ</div>
@@ -262,7 +264,7 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
 <!-- ══════ MAIN ══════ -->
 <div class="header">
   <img class="logo" src="https://i.ibb.co.com/yFn890yV/logo-smpabbs.png" alt="logo smpabbs">
-  <h1>PEMBAGIAN KELAS — AWALUSSANAH</h1>
+  <h1>PEMBAGIAN KELAS SISWA BARU</h1>
   <div class="sub">SMP ABBS SURAKARTA — TAHUN AJARAN 2026/2027</div>
 </div>
 
@@ -276,29 +278,52 @@ tr:nth-child(even):hover td{background:rgba(212,168,83,.04)}
 <div class="footer" id="footer"></div>
 
 <script>
-// ── DATA ──
-var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/awalussanah-2026@master/data/siswa.json';
-var BASE_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/awalussanah-2026@master/data/';
+// ── DATA SOURCE ──
+var DATA_URL = 'https://cdn.jsdelivr.net/gh/smpabbs/pps-pembagian-kelas@main/data.json';
 
-// ── KELAS MAPPING ──
-var KELAS_KEY = ['7 Putra A','7 Putra B','7 Putra C','7 Putri A','7 Putri B'];
-var KELAS_LABEL = {'7 Putra A':'7A','7 Putra B':'7B','7 Putra C':'7C','7 Putri A':'7D','7 Putri B':'7E'};
-var KELAS_INFO = {'7 Putra A':'Putra 1','7 Putra B':'Putra 2','7 Putra C':'Putra 3','7 Putri A':'Putri 1','7 Putri B':'Putri 2'};
-
+// ── WALI KELAS ──
 var WALAS = {
-  '7 Putra A': {nama:'Ifan Destya Adi Tama, S.Pd, Gr.', panggilan:'Mr Ifan', foto:'walas/walas-3.png'},
-  '7 Putra B': {nama:'Daffa Danendra Rizqi Nugraha, S.Pd.', panggilan:'Mr Danen', foto:'walas/walas-4.png'},
-  '7 Putra C': {nama:'Hang Sakti Abdullah, S.Pd.', panggilan:'Mr Hang', foto:'walas/walas-5.png'},
-  '7 Putri A': {nama:'Aulia Qisthi Rosyada, S.Pd., Gr.', panggilan:'Ms Qisti', foto:'walas/walas-1.png'},
-  '7 Putri B': {nama:'Charlieta Nova Putri Fedito, S.Kom', panggilan:'Ms Lita', foto:'walas/walas-2.png'}
+  '7A': { nama:'Mr Hang', cp:'+62 895-2903-2377', panggilan:'Mr Hang', warna:'#0d7377', wa_grup:'https://chat.whatsapp.com/GILUNPKKbsj7zuc5mXV2uc?s=cl&p=a&ilr=1&amv=2' },
+  '7B': { nama:'Mr Joko', cp:'+62 858-4222-0006', panggilan:'Mr Joko', warna:'#1a6b8a', wa_grup:'https://chat.whatsapp.com/LdLclfvwc2c044gHVjSz76?s=sh&p=a&ilr=4&amv=0' },
+  '7C': { nama:'Mr Sharih', cp:'+62 857-2500-7383', panggilan:'Mr Sharih', warna:'#2a5a2a', wa_grup:'https://chat.whatsapp.com/CnrhoOmf4qaCLjkdzkeYI3?s=cl&p=a&ilr=0' },
+  '7D': { nama:'Ms Binti', cp:'+62 857-2732-0047', panggilan:'Ms Binti', warna:'#b45309', wa_grup:'https://chat.whatsapp.com/Dxs0jto6kYF7kRE8GyeJDI?s=cl&p=a&ilr=0&amv=2' },
+  '7E': { nama:'Ms Putri', cp:'+62 856-4664-2303', panggilan:'Ms Putri', warna:'#7c3aed', wa_grup:'https://chat.whatsapp.com/HNoc5OH6cJWBEKNK0uzKzn?mode=gi_t' }
 };
-var QR = {'7 Putra A':'qr/qr-7A.png','7 Putra B':'qr/qr-7B.png','7 Putra C':'qr/qr-7C.png','7 Putri A':'qr/qr-7D.png','7 Putri B':'qr/qr-7E.png'};
+
+// ── LINK GRUP ANGKATAN (SEMUA KELAS) ──
+// TODO: ganti dengan link grup angkatan level 7 yang bener
+var WA_ANGKATAN = '#';
+
+// ── HELPERS ──
+function parseDate(str) {
+  if (!str) return 99999999;
+  var p = str.split('/');
+  return p.length === 3 ? +p[2]*10000 + +p[1]*100 + +p[0] : 99999999;
+}
+function sortByDate(a,b) { return parseDate(a.tgl_daftar) - parseDate(b.tgl_daftar); }
+
+// ── CLASS DIVISION ──
+function calculateClasses(siswa) {
+  var l = siswa.filter(function(s){ return s.program.endsWith('-L'); }).sort(sortByDate);
+  var pr = siswa.filter(function(s){ return s.program.endsWith('-P'); }).sort(sortByDate);
+  function get(p,a){ return a.filter(function(s){ return s.program === p; }); }
+  return {
+    '7A': [].concat(get('ICT-L',l).slice(0,26), get('VCP-L',l).slice(0,3)).sort(sortByDate),
+    '7B': [].concat(get('ICT-L',l).slice(26,52), get('VCP-L',l).slice(3,6)).sort(sortByDate),
+    '7C': [].concat(get('ICT-L',l).slice(52), get('TCP-L',l), get('VCP-L',l).slice(6)).sort(sortByDate),
+    '7D': [].concat(get('ICT-P',pr)).sort(sortByDate),
+    '7E': [].concat(get('TCP-P',pr), get('VCP-P',pr)).sort(sortByDate)
+  };
+}
+
+var KELAS_INFO = {'7A':'Putra 1','7B':'Putra 2','7C':'Putra 3','7D':'Putri 1','7E':'Putri 2'};
+var KELAS_URUT = ['7A','7B','7C','7D','7E'];
 
 // ── STATE ──
 var data = null;
 var loading = false;
 var loadErr = null;
-var tabAktif = KELAS_KEY[0];
+var tabAktif = '7A';
 var bgStarted = false;
 
 // ── WELCOME ──
@@ -359,9 +384,9 @@ function render() {
   }
 
   var html = '<div class="tab-bar" id="tabBar">';
-  for (var i=0;i<KELAS_KEY.length;i++) {
-    var k = KELAS_KEY[i];
-    html += '<button class="tab'+(tabAktif===k?' active':'')+'" data-kelas="'+k+'" onclick="pilih(\''+k+'\')">'+KELAS_LABEL[k]+'</button>';
+  for (var i=0;i<KELAS_URUT.length;i++) {
+    var k = KELAS_URUT[i];
+    html += '<button class="tab'+(tabAktif===k?' active':'')+'" data-kelas="'+k+'" onclick="pilih(\''+k+'\')">'+k+'</button>';
   }
   html += '</div>';
 
@@ -374,7 +399,7 @@ function render() {
   html += '<div id="card-container"></div>';
   app.innerHTML = html;
   renderTable();
-  ft.innerHTML = 'Data siswa: '+data.siswa.length+' • <a href="https://awwalussanahsmpabbs.vercel.app" target="_blank">Portal Awalussanah</a>';
+  ft.innerHTML = 'Data per '+(data.per_tanggal||'-')+' • <a href="https://pps2627.vercel.app" target="_blank">Admin</a>';
 }
 
 // ── SEARCH ──
@@ -396,35 +421,21 @@ function resetCari() {
   renderTable('');
 }
 
-// ── BUILD KELAS DATA ──
-function groupByKelas() {
-  var byKelas = {};
-  for (var i=0;i<KELAS_KEY.length;i++) byKelas[KELAS_KEY[i]] = [];
-  for (var i=0;i<data.siswa.length;i++) {
-    var s = data.siswa[i];
-    if (byKelas[s.kelas]) byKelas[s.kelas].push(s);
-  }
-  for (var i=0;i<KELAS_KEY.length;i++) {
-    byKelas[KELAS_KEY[i]].sort(function(a,b){ return a.n.localeCompare(b.n); });
-  }
-  return byKelas;
-}
-
 // ── RENDER TABLE ──
 function renderTable(query) {
   if (!data || !data.siswa) return;
   if (query===undefined) query = '';
   var q = query.toLowerCase().trim();
-  var byKelas = groupByKelas();
+  var kls = calculateClasses(data.siswa);
 
   // ── SEARCH MODE ──
   if (q) {
     var semua = [];
-    for (var i=0;i<KELAS_KEY.length;i++) {
-      var k = KELAS_KEY[i];
-      var list = byKelas[k] || [];
+    for (var i=0;i<KELAS_URUT.length;i++) {
+      var k = KELAS_URUT[i];
+      var list = kls[k] || [];
       for (var j=0;j<list.length;j++) {
-        if (list[j].n.toLowerCase().indexOf(q)!==-1) semua.push({siswa:list[j], kelas:k});
+        if (list[j].nama.toLowerCase().indexOf(q)!==-1) semua.push({siswa:list[j], kelas:k});
       }
     }
     var byK = {};
@@ -436,11 +447,11 @@ function renderTable(query) {
     var totalHasil = semua.length;
     var totalSiswa = data.siswa.length;
     var allRows = '';
-    var urut = KELAS_KEY.filter(function(k){ return byK[k]; });
+    var urut = KELAS_URUT.filter(function(k){ return byK[k]; });
     for (var i=0;i<urut.length;i++) {
       var k = urut[i];
       var list = byK[k];
-      allRows += '<tr class="grup-header"><td colspan="5">▸ '+KELAS_LABEL[k]+' — '+KELAS_INFO[k]+' <span style="color:var(--text3);font-weight:400">('+list.length+')</span></td></tr>';
+      allRows += '<tr class="grup-header"><td colspan="4">▸ '+k+' — '+KELAS_INFO[k]+' <span style="color:var(--text3);font-weight:400">('+list.length+')</span></td></tr>';
       for (var j=0;j<list.length;j++) {
         allRows += rowSiswa(list[j], j);
       }
@@ -452,25 +463,22 @@ function renderTable(query) {
       '<div class="kode" style="font-size:16px">🔍 Hasil Pencarian</div>'+
       '<div class="counts"><span class="count-badge total">'+totalHasil+'/'+totalSiswa+' siswa</span></div>'+
       '</div></div>'+
-      '<div class="card-body"><table><thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th><th>No. WA</th></tr></thead><tbody>'+
-      (allRows || '<tr><td colspan="5"><div class="empty">Tidak ada siswa dengan nama "'+query+'"</div></td></tr>')+
+      '<div class="card-body"><table><thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
+      (allRows || '<tr><td colspan="4"><div class="empty">Tidak ada siswa dengan nama "'+query+'"</div></td></tr>')+
       '</tbody></table></div></div>';
     return;
   }
 
   // ── NORMAL MODE ──
-  var siswa = byKelas[tabAktif] || [];
+  var siswa = kls[tabAktif] || [];
   var w = WALAS[tabAktif] || {};
-  var qr = QR[tabAktif] || '';
-  var isPutri = tabAktif.indexOf('Putri')!==-1;
-  var lCount = 0, pCount = 0;
-  for (var i=0;i<siswa.length;i++) {
-    if (siswa[i].g==='L') lCount++; else pCount++;
-  }
+  var info = KELAS_INFO[tabAktif] || '';
+  var lCount = siswa.filter(function(s){ return s.program.endsWith('-L'); }).length;
+  var pCount = siswa.filter(function(s){ return s.program.endsWith('-P'); }).length;
 
   var rows = '';
   if (siswa.length===0) {
-    rows = '<tr><td colspan="5"><div class="empty">Belum ada siswa</div></td></tr>';
+    rows = '<tr><td colspan="4"><div class="empty">Belum ada siswa</div></td></tr>';
   } else {
     for (var i=0;i<siswa.length;i++) {
       rows += rowSiswa(siswa[i], i);
@@ -480,63 +488,51 @@ function renderTable(query) {
   var card = document.getElementById('card-container');
   if (!card) return;
 
-  // Hero with walas
-  var heroRight = '';
-  if (w.foto) {
-    heroRight += '<img class="foto-walas" src="'+BASE_URL+w.foto+'" alt="'+w.panggilan+'">';
-    heroRight += '<span class="panggilan">'+w.panggilan+'</span>';
+  // Avatar walas
+  var namaArr = (w.panggilan||'').split(' ');
+  var inisialWalas = '';
+  for (var a=0;a<namaArr.length;a++) {
+    if (namaArr[a] && namaArr[a].length>0) inisialWalas += namaArr[a][0];
   }
-  if (qr) {
-    heroRight += '<div class="qr-wrap"><img src="'+BASE_URL+qr+'" alt="QR '+KELAS_LABEL[tabAktif]+'"><span class="qr-label">Grup WA</span></div>';
-  }
+  inisialWalas = inisialWalas.toUpperCase().substring(0,2);
 
   card.innerHTML =
     '<div class="kelas-card">'+
       '<div class="kelas-hero">'+
         '<div class="kelas-hero-left">'+
-          '<div class="kode">'+KELAS_LABEL[tabAktif]+' — '+KELAS_INFO[tabAktif]+'</div>'+
+          '<div class="kode">'+tabAktif+' — '+info+'</div>'+
           '<div class="walas-nama">Wali Kelas: <strong>'+(w.nama||'-')+'</strong></div>'+
+          '<div class="walas-cp">📞 '+(w.cp||'')+'</div>'+
           '<div class="counts">'+
             (lCount>0?'<span class="count-badge laki">♂ '+lCount+' Laki-laki</span>':'')+
             (pCount>0?'<span class="count-badge perempuan">♀ '+pCount+' Perempuan</span>':'')+
             '<span class="count-badge total">Total: '+siswa.length+' Siswa</span>'+
+            (w.wa_grup?'<a href="'+w.wa_grup+'" target="_blank" class="count-badge wa-group">💬 Grup Kelas</a>':'')+
+            (WA_ANGKATAN!=='#'?'<a href="'+WA_ANGKATAN+'" target="_blank" class="count-badge wa-angkatan">👥 Grup Angkatan</a>':'')+
           '</div>'+
         '</div>'+
-        '<div class="kelas-hero-right">'+heroRight+'</div>'+
+        '<div class="kelas-hero-right">'+
+          '<div class="avatar-walas" style="background:'+(w.warna||'#64748b')+'">'+inisialWalas+'</div>'+
+          '<span class="panggilan">'+w.panggilan+'</span>'+
+        '</div>'+
       '</div>'+
       '<div class="card-body"><table>'+
-        '<thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th><th>No. WA</th></tr></thead><tbody>'+
+        '<thead><tr><th style="width:32px">No</th><th>Nama Siswa</th><th style="width:50px">JK</th><th>Asal Sekolah</th></tr></thead><tbody>'+
         rows+
         '</tbody></table></div>'+
     '</div>';
 }
 
 function rowSiswa(s, i) {
-  var namaArr = s.n.split(' ');
+  var namaArr = s.nama.split(' ');
   var inisial = (namaArr[0]?namaArr[0][0]:'')+(namaArr[1]?namaArr[1][0]:'');
   var warna = i%3===0?'#d4a853':(i%3===1?'#7c8cd4':'#6bb5a0');
-  var jkClass = s.g==='L'?'l':'p';
-  var jkLabel = s.g==='L'?'♂ L':'♀ P';
-
-  var waHtml = '-';
-  if (s.wa) {
-    var parts = s.wa.split('/');
-    var links = [];
-    for (var w=0;w<parts.length;w++) {
-      var d = parts[w].trim();
-      var num = d.replace(/\D/g,'');
-      if (!num) continue;
-      var link = num.charAt(0)==='0'?'62'+num.substring(1):(num.indexOf('62')===0?num:'62'+num);
-      links.push('<a href="https://wa.me/'+link+'" target="_blank" class="wa-link">💬 WA</a>');
-    }
-    if (links.length) waHtml = links.join(' <span class="wa-sep">/</span> ');
-  }
-
+  var jkLabel = s.program.endsWith('-L')?'♂ L':'♀ P';
+  var jkClass = s.program.endsWith('-L')?'l':'p';
   return '<tr><td class="no-col">'+(i+1)+'</td>'+
-    '<td class="nama"><span class="avatar" style="background:'+warna+'">'+inisial+'</span>'+s.n+'</td>'+
+    '<td class="nama"><span class="avatar" style="background:'+warna+'">'+inisial+'</span>'+s.nama+'</td>'+
     '<td class="jk-cell"><span class="'+jkClass+'">'+jkLabel+'</span></td>'+
-    '<td class="asal">'+s.s+'</td>'+
-    '<td class="wa-cell">'+waHtml+'</td></tr>';
+    '<td class="asal">'+s.asal_sekolah+'</td></tr>';
 }
 
 // ── BACKGROUND FETCH ──
